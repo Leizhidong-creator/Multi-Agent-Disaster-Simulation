@@ -1,18 +1,28 @@
+<div align="center">
+
 # 智演 Agent
 
 ### 面向高密度人群风险复演与干预评估的快慢双脑多智能体系统
 
-> 第二十八届中国机器人及人工智能大赛国奖项目
+**第二十八届中国机器人及人工智能大赛国奖项目**
 
 `Multi-Agent System` · `Social Force Model` · `Fast-Slow Brain` · `RAG` · `Digital Twin`
 
+[方法概览](#-方法概览) · [实验结果](#-实验与证据) · [快速开始](#-快速开始) · [论文与引用](#-方法参考与引用)
+
+</div>
+
 智演 Agent 面向狭窄街巷、活动入口和交通瓶颈中的高密度人群风险，将社会力模型驱动的连续仿真与大语言模型驱动的个体认知推演结合，用同一套系统回答三个问题：**风险如何形成、个体为何采取特定行动、干预措施能否降低拥堵**。项目最终形成“场景复演 -> 风险诊断 -> 规范检索 -> 干预再仿真 -> 报告输出”的完整闭环。
 
-![智演 Agent 人群沙盒与慢脑认知流](docs/assets/zhiyan-simulation-dashboard.png)
+## 🔬 方法概览
 
-<p align="center"><sub>图 1：历史运行截帧，展示 2.5D 人群沙盒、Agent 第一人称认知流与风险指标。截图仅作为功能界面证据，实验结论以 <code>docs/results/</code> 为准。</sub></p>
+![智演 Agent 方法总览：场景输入、快慢双脑仿真、证据诊断与干预评估](docs/assets/method-overview.png)
 
-## 30 秒看懂项目
+<p align="center"><sub><b>图 1｜方法总览。</b> 系统将高频、确定性的群体状态演化交给 Fast Brain，将高成本个体推理限制在风险事件触发范围内，再以仿真指标、Agent 行为日志和安全规则驱动诊断与同种子干预复演。</sub></p>
+
+方法链路由四个可验证环节组成：场景与人群画像构成实验输入；向量化社会力模型承担连续物理更新；风险阈值触发代表性 Agent 的 Slow Brain 推理；RAG 将规则证据映射为可执行干预，并在相同随机种子下重新仿真比较。
+
+## ⚡ 30 秒看懂项目
 
 | 面试官关心的问题 | 本项目的回答 |
 |---|---|
@@ -22,7 +32,7 @@
 | 项目成果 | 获第二十八届中国机器人及人工智能大赛国奖；公开版提供源码、实验脚本、机器可读结果和真实运行截图 |
 | 我的角色 | 项目负责人，主导系统架构、人群仿真优化、历史场景校准、RAG 诊断链路、干预策略映射与整体联调 |
 
-## 项目成果与个人贡献
+## 🏆 项目成果与个人贡献
 
 我没有把项目包装成单一的“LLM + 可视化”演示，而是围绕可运行、可解释和可复现三个目标推进工程实现。
 
@@ -33,30 +43,7 @@
 | 诊断结论与仿真过程、规范材料割裂 | 将真实仿真摘要、密度/速度序列、微观行为日志与本地安全规则片段送入 LangChain + ChromaDB 链路 | 可生成指标表、风险时间线、行为摘录、规则映射和 Markdown/PDF 报告 |
 | 整改建议停留在文字层 | 把中央护栏、单向导流、出口拓宽映射为可执行的边界、碰撞和寻路参数，使用固定种子做成对复演 | 三种子复跑中，单向导流的峰值密度均值由 6.433 降至 4.947 人/m²，下降 **23.10%** |
 
-## 核心界面
-
-![智演 Agent 无 Key 控制台](docs/assets/zhiyan-control-workspace.png)
-
-<p align="center"><sub>图 2：公开仓库当前版本在无 .env 环境下的控制台。物理仿真可直接运行，LLM Provider 未配置时开关保持禁用。</sub></p>
-
-界面将场景、Agent 容量、双向客流和人群画像比例集中在控制区；沙盒区呈现空间分布、风险热力与统计指标；认知区支持观察单个 Agent 的感知、情绪、意图和动作；报告区把宏观指标与微观日志组合为可追溯诊断材料。
-
-## 系统架构
-
-```mermaid
-flowchart LR
-    UI[Web / PySide6] --> API[FastAPI API]
-    API --> FAST[Fast Brain<br/>NumPy Simulation]
-    FAST -->|密度阈值触发| SLOW[Slow Brain<br/>LLM Reasoner]
-    FAST --> METRICS[Density / Velocity / Logs]
-    METRICS --> RAG[RAG<br/>Safety Rules]
-    SLOW --> REPORT[Markdown / PDF Report]
-    RAG --> REPORT
-```
-
-系统的核心设计原则是让确定性计算和生成式推理各自承担合适的工作。快脑负责高频位置、速度、碰撞、压力和热力图更新；慢脑只在局部密度达到风险阈值时，为代表性 Agent 生成结构化感知与行动。报告层消费的不是前端预设值，而是仿真返回的汇总指标、时间序列和日志。
-
-## 核心方法
+## 🧩 核心方法
 
 ### 1. 向量化人群动力学
 
@@ -74,11 +61,15 @@ flowchart LR
 
 中央护栏改变碰撞边界并分隔对向人流，单向导流调整生成方向和目标车道，出口拓宽改变通道半宽。三种策略作用于实际仿真逻辑，而非只绘制前端覆盖层。用户可以在相同 Agent 容量、步数和种子下对比干预前后的峰值密度、危险步数和出口通过率。
 
-## 实验与证据
+## 📊 实验与证据
 
 本仓库把数字分为“公开版实测”和“历史目标校准”两类。实测结果可由当前脚本重新生成；历史校准记录的是针对已知目标反复调参后的结果，只说明调参贴合程度，不表示对未知场景的预测精度。
 
-### 本地性能基准
+![固定种子干预实验：峰值密度与出口通过率对比](docs/assets/intervention-comparison.png)
+
+<p align="center"><sub><b>图 2｜干预证据。</b> 基于 3 个固定种子、300 Agent 容量上限和 120 步的工程对比；单向导流在当前参数下获得最大的峰值密度降幅。该实验用于回归和方案比较，不构成跨场景普遍排序。</sub></p>
+
+### 🚀 本地性能基准
 
 | 配置 | 观测结果 |
 |---|---:|
@@ -91,7 +82,7 @@ flowchart LR
 
 结果文件见 [`docs/results/benchmark.json`](docs/results/benchmark.json)。吞吐受处理器、Python/NumPy 版本和场景参数影响，不应视为跨硬件固定值。
 
-### 干预成对实验
+### 🧪 干预成对实验
 
 实验使用 `mitigation` 场景、300 Agent 容量上限、120 步和 3 个固定种子。每种策略与无干预基准共享种子。
 
@@ -104,15 +95,15 @@ flowchart LR
 
 结果文件见 [`docs/results/interventions.json`](docs/results/interventions.json)。`n=3` 的实验用于工程回归和方案比较，不提供统计显著性结论；当前参数下单向导流效果最好，不代表所有空间和客流条件下的普遍排序。
 
-### 历史目标校准
+### 🎯 历史目标校准
 
 2026-04-28 的调优记录以 16.4 人/m² 为已知目标，通过调整核心压力、局部交互半径和高压停留机制得到 16.33 人/m²，绝对差 0.07 人/m²、相对校准误差约 0.43%。这是**校准结果，不是准确率，也不是当前公开版性能基准**。脱敏摘要见 [`docs/results/historical-calibration.json`](docs/results/historical-calibration.json)。
 
 ![事故场景空间分布审计](docs/assets/crowd-distribution-audit.png)
 
-<p align="center"><sub>图 3：60 步事故场景中人群由两侧向漏斗核心区汇聚的空间演化，用于检查分布和边界行为。</sub></p>
+<p align="center"><sub><b>图 3｜空间分布审计。</b> 60 步事故场景中人群由两侧向漏斗核心区汇聚，用于检查分布演化、瓶颈形成与边界行为。</sub></p>
 
-### 复现实验
+### ♻️ 复现实验
 
 ```powershell
 # 性能基准
@@ -125,9 +116,12 @@ python scripts/evaluate_interventions.py `
   --agents 300 --steps 120 `
   --seeds 20260824 20260825 20260826 `
   --output docs/results/interventions.json
+
+# 由机器可读结果重新生成 README 图表
+python scripts/generate_readme_figures.py
 ```
 
-## 快速开始
+## 🛠️ 快速开始
 
 ### 1. 安装
 
@@ -175,7 +169,7 @@ python scripts/security_scan.py --worktree --staged --history
 
 扫描结果只输出规则名、文件和行号，不回显命中的敏感值；它用于降低误提交风险，不能替代专业安全审计。
 
-## 主要接口
+## 🔌 主要接口
 
 | 方法 | 路径 | 作用 |
 |---|---|---|
@@ -188,7 +182,7 @@ python scripts/security_scan.py --worktree --staged --history
 
 FastAPI 交互文档位于 `http://127.0.0.1:8000/docs`。
 
-## 项目结构
+## 🗂️ 项目结构
 
 ```text
 .
@@ -206,21 +200,23 @@ FastAPI 交互文档位于 `http://127.0.0.1:8000/docs`。
 └── .env.example          # 不含真实凭据的配置模板
 ```
 
-## 当前局限与未来工作
+## 🔭 当前局限与未来工作
 
 当前系统是科研与竞赛原型，不是经过主管部门认证的生产级人群安全平台。几何与人流参数主要来自文献锚点和工程化抽象，尚未使用多场景真实轨迹做外部验证；历史目标校准也需要在后续版本建立自动回归，避免代码演进造成口径漂移。
 
 LLM 慢脑会引入网络时延、调用成本和生成不确定性，因此公开版默认关闭，并保留本地确定性路径。RAG 数据目前是少量示例规则，不支持完整法规覆盖或正式合规判断。干预实验样本数有限，未来将增加更多种子、客流强度、空间形态和消融实验，并报告置信区间与跨场景稳定性。
 
-## 方法参考
+## 📚 方法参考与引用
 
-1. Helbing, D., & Molnár, P. (1995). *Social force model for pedestrian dynamics*. Physical Review E, 51(5), 4282-4286. [https://doi.org/10.1103/PhysRevE.51.4282](https://doi.org/10.1103/PhysRevE.51.4282)
-2. Helbing, D., Farkas, I., & Vicsek, T. (2000). *Simulating dynamical features of escape panic*. Nature, 407, 487-490. [https://doi.org/10.1038/35035023](https://doi.org/10.1038/35035023)
-3. Christakopoulou, K., Mourad, S., & Matarić, M. (2024). *Agents Thinking Fast and Slow: A Talker-Reasoner Architecture*. arXiv:2410.08328. [https://arxiv.org/abs/2410.08328](https://arxiv.org/abs/2410.08328)
+| 方法来源 | 本项目中的作用 | 对应实现 |
+|---|---|---|
+| Helbing & Molnár (1995), *Social force model for pedestrian dynamics* · [DOI](https://doi.org/10.1103/PhysRevE.51.4282) | 为期望速度、个体排斥与边界约束提供动力学基础 | [`app/services/simulation.py`](app/services/simulation.py) |
+| Helbing, Farkas & Vicsek (2000), *Simulating dynamical features of escape panic* · [Nature](https://doi.org/10.1038/35035023) | 为高密度逃生中的拥堵涌现、接触效应与瓶颈行为提供参考 | [`app/services/simulation.py`](app/services/simulation.py) |
+| Christakopoulou, Mourad & Matarić (2024), *Agents Thinking Fast and Slow: A Talker-Reasoner Architecture* · [arXiv](https://arxiv.org/abs/2410.08328) | 启发 Fast Brain 高频状态更新与 Slow Brain 事件触发推理的职责拆分 | [`app/services/slow_brain.py`](app/services/slow_brain.py) |
 
 引用元数据的核验来源见 [`sources/research_foundational_methods.md`](sources/research_foundational_methods.md)。
 
-## 免责声明与许可证
+## ⚖️ 免责声明与许可证
 
 本项目用于科研展示、教学和方案预研。仿真结果不能替代现场勘察、专业工程计算、法规审查或应急指挥决策；公开规则文本仅用于演示 RAG 链路。
 

@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1127.27952pt" height="544.07952pt" viewBox="0 0 1127.27952 544.07952" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Zhiyan Agent figure generator</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M -0 544.07952
+L 1127.27952 544.07952
+L 1127.27952 0
+L -0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 22.962574 482.047677
+L 255.704409 482.047677
+L 255.704409 94.066949
+L 22.962574 94.066949
+z
+" clip-path="url(#p34903800cb)" style="fill: #eaf3ff; stroke: #2f80ed; stroke-width: 1.4"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 45.878694 190.172267
+L 232.072161 190.172267
+L 232.072161 134.64475
+L 45.878694 134.64475
+z
+" clip-path="url(#p34903800cb)" style="fill: #ffffff; stroke: #2f80ed; stroke-width: 1.1"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 45.878694 277.73489
+L 232.072161 277.73489
+L 232.072161 222.207373
+L 45.878694 222.207373
+z
+" clip-path="url(#p34903800cb)" style="fill: #ffffff; stroke: #2f80ed; stroke-width: 1.1"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 45.878694 365.297513
+L 232.072161 365.297513
+L 232.072161 309.769996
+L 45.878694 309.769996
+z
+" clip-path="url(#p34903800cb)" style="fill: #ffffff; stroke: #2f80ed; stroke-width: 1.1"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 287.930202 482.047677
+L 638.833276 482.047677
+L 638.833276 94.066949
+L 287.930202 94.066949
+z
+" clip-path="url(#p34903800cb)" style="fill: #e8f7f6; stroke: #008c95; stroke-width: 1.4"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 312.994707 211.529004
+L 613.768771 211.529004
+L 613.768771 140.33988
+L 312.994707 140.33988
+z
+" clip-path="url(#p34903800cb)" style="fill: #ffffff; stroke: #008c95; stroke-width: 1.1"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 312.994707 325.431603
+L 613.768771 325.431603
+L 613.768771 254.242479
+L 312.994707 254.242479
+z
+" clip-path="url(#p34903800cb)" style="fill: #ffffff; stroke: #e67e22; stroke-width: 1.1"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 312.994707 439.334202
+L 613.768771 439.334202
+L 613.768771 368.145078
+L 312.994707 368.145078
+z
+" clip-path="url(#p34903800cb)" style="fill: #ffffff; stroke: #17324d; stroke-width: 1.1"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 671.059068 482.047677
+L 860.83318 482.047677
+L 860.83318 94.066949
+L 671.059068 94.066949
+z
+" clip-path="url(#p34903800cb)" style="fill: #fff3e8; stroke: #e67e22; stroke-width: 1.4"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 693.975188 211.529004
+L 837.200932 211.529004
+L 837.200932 147.458792
+L 693.975188 147.458792
+z
+" clip-path="url(#p34903800cb)" style="fill: #ffffff; stroke: #e67e22; stroke-width: 1.1"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 693.975188 311.193778
+L 837.200932 311.193778
+L 837.200932 247.123566
+L 693.975188 247.123566
+z
+" clip-path="url(#p34903800cb)" style="fill: #ffffff; stroke: #e67e22; stroke-width: 1.1"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 693.975188 410.858552
+L 837.200932 410.858552
+L 837.200932 346.788341
+L 693.975188 346.788341
+z
+" clip-path="url(#p34903800cb)" style="fill: #ffffff; stroke: #e67e22; stroke-width: 1.1"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 893.058972 482.047677
+L 1104.316946 482.047677
+L 1104.316946 94.066949
+L 893.058972 94.066949
+z
+" clip-path="url(#p34903800cb)" style="fill: #eaf7ef; stroke: #2e8b57; stroke-width: 1.4"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 918.123478 211.529004
+L 1079.25244 211.529004
+L 1079.25244 147.458792
+L 918.123478 147.458792
+z
+" clip-path="url(#p34903800cb)" style="fill: #ffffff; stroke: #2e8b57; stroke-width: 1.1"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 918.123478 311.193778
+L 1079.25244 311.193778
+L 1079.25244 247.123566
+L 918.123478 247.123566
+z
+" clip-path="url(#p34903800cb)" style="fill: #ffffff; stroke: #2e8b57; stroke-width: 1.1"/>
+   </g>
+   <g id="patch_17">
+    <path d="M 918.123478 410.858552
+L 1079.25244 410.858552
+L 1079.25244 346.788341
+L 918.123478 346.788341
+z
+" clip-path="url(#p34903800cb)" style="fill: #ffffff; stroke: #2e8b57; stroke-width: 1.1"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 17px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #17324d" x="8.64" y="36.08998" transform="rotate(-0 8.64 36.08998)">智演 Agent：面向高密度人群风险复演与干预评估的方法总览</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 9.5px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #667085" x="8.64" y="53.219751" transform="rotate(-0 8.64 53.219751)">A deterministic multi-agent simulation loop with event-triggered reasoning and evidence-grounded intervention evaluation</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2f80ed" x="38.717406" y="130.694441" transform="rotate(-0 38.717406 130.694441)">A  场景与输入</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 8.5px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #667085" x="38.717406" y="152.088587" transform="rotate(-0 38.717406 152.088587)">Scenario construction</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1d2939" x="138.975428" y="156.43895" transform="rotate(-0 138.975428 156.43895)">场景参数</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 8px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #667085" x="138.975428" y="174.084436" transform="rotate(-0 138.975428 174.084436)">geometry · flow · profiles</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1d2939" x="138.975428" y="244.001572" transform="rotate(-0 138.975428 244.001572)">个体画像</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 8px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #667085" x="138.975428" y="261.594559" transform="rotate(-0 138.975428 261.594559)">normal · group · vulnerable</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1d2939" x="138.975428" y="331.644664" transform="rotate(-0 138.975428 331.644664)">事故 / 瓶颈</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 8px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #667085" x="138.975428" y="349.209682" transform="rotate(-0 138.975428 349.209682)">funnel · conflict · blockage</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; fill: #2f80ed" transform="translate(115.760349 439.407658)">same seed</text>
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; fill: #2f80ed" transform="translate(101.945349 450.112595)">for paired replay</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #008c95" x="303.685034" y="130.694441" transform="rotate(-0 303.685034 130.694441)">B  快慢双脑仿真</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 8.5px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #667085" x="303.685034" y="152.088587" transform="rotate(-0 303.685034 152.088587)">Fast physics + event-triggered cognition</text>
+   </g>
+   <g id="text_14">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1d2939" x="463.381739" y="167.459026" transform="rotate(-0 463.381739 167.459026)">Fast Brain</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 8px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #667085" x="463.381739" y="190.284093" transform="rotate(-0 463.381739 190.284093)">vectorized Social Force Model · NumPy</text>
+   </g>
+   <g id="text_16">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1d2939" x="463.381739" y="281.361625" transform="rotate(-0 463.381739 281.361625)">Slow Brain</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 8px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #667085" x="463.381739" y="304.122942" transform="rotate(-0 463.381739 304.122942)">representative Agent reasoning · LLM / local</text>
+   </g>
+   <g id="text_18">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1d2939" x="463.381739" y="395.264224" transform="rotate(-0 463.381739 395.264224)">State + evidence</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 8px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #667085" x="463.381739" y="418.025541" transform="rotate(-0 463.381739 418.025541)">density · velocity · pressure · action logs</text>
+   </g>
+   <g id="patch_18">
+    <path d="M 151.253272 200.40163
+Q 230.640734 188.392413 308.480557 176.617313
+" style="fill: none; stroke: #2f80ed; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 304.22641 175.238099
+L 308.480557 176.617313
+L 304.824697 179.193102
+" style="fill: none; stroke: #2f80ed; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 7.5px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #667085" x="230.639904" y="178.131875" transform="rotate(-0 230.639904 178.131875)">initialize</text>
+   </g>
+   <g id="patch_19">
+    <path d="M 151.283431 288.439177
+Q 230.641285 289.125162 308.433951 289.797617
+" style="fill: none; stroke: #2f80ed; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 304.451388 287.763116
+L 308.433951 289.797617
+L 304.416813 291.762967
+" style="fill: none; stroke: #2f80ed; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 7.5px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #667085" x="230.639904" y="278.864486" transform="rotate(-0 230.639904 278.864486)">profile</text>
+   </g>
+   <g id="patch_20">
+    <path d="M 151.087396 341.459269
+Q 230.641508 372.061097 308.734728 402.100967
+" style="fill: none; stroke: #2f80ed; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 305.719452 398.798225
+L 308.734728 402.100967
+L 304.283368 402.531543
+" style="fill: none; stroke: #2f80ed; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 7.5px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #667085" x="230.639904" y="361.799816" transform="rotate(-0 230.639904 361.799816)">perturb</text>
+   </g>
+   <g id="patch_21">
+    <path d="M 463.381739 214.529688
+Q 463.381739 232.885704 463.381739 249.676472
+" style="fill: none; stroke: #e67e22; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 465.381739 245.676472
+L 463.381739 249.676472
+L 461.381739 245.676472
+" style="fill: none; stroke: #e67e22; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="text_23">
+    <text style="font-size: 7.5px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #667085" x="463.381739" y="222.625078" transform="rotate(-0 463.381739 222.625078)">risk threshold</text>
+   </g>
+   <g id="patch_22">
+    <path d="M 463.381739 328.433547
+Q 463.381739 346.431367 463.381739 362.863938
+" style="fill: none; stroke: #e67e22; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 465.381739 358.863938
+L 463.381739 362.863938
+L 461.381739 358.863938
+" style="fill: none; stroke: #e67e22; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="text_24">
+    <text style="font-size: 7.5px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #667085" x="463.381739" y="336.0147" transform="rotate(-0 463.381739 336.0147)">action mapping</text>
+   </g>
+   <g id="text_25">
+    <text style="font-size: 8px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #008c95" x="590.136523" y="128.237729" transform="rotate(-0 590.136523 128.237729)">high-frequency</text>
+   </g>
+   <g id="text_26">
+    <text style="font-size: 8px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #e67e22" x="590.136523" y="349.635906" transform="rotate(-0 590.136523 349.635906)">event-triggered</text>
+   </g>
+   <g id="text_27">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #e67e22" x="686.8139" y="130.694441" transform="rotate(-0 686.8139 130.694441)">C  证据诊断</text>
+   </g>
+   <g id="text_28">
+    <text style="font-size: 8.5px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #667085" x="686.8139" y="152.088587" transform="rotate(-0 686.8139 152.088587)">Evidence-grounded analysis</text>
+   </g>
+   <g id="text_29">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1d2939" x="765.58806" y="172.157508" transform="rotate(-0 765.58806 172.157508)">RAG</text>
+   </g>
+   <g id="text_30">
+    <text style="font-size: 8px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #667085" x="765.58806" y="192.685834" transform="rotate(-0 765.58806 192.685834)">safety rules</text>
+   </g>
+   <g id="text_31">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1d2939" x="765.58806" y="271.887126" transform="rotate(-0 765.58806 271.887126)">Risk report</text>
+   </g>
+   <g id="text_32">
+    <text style="font-size: 8px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #667085" x="765.58806" y="292.318108" transform="rotate(-0 765.58806 292.318108)">timeline · excerpts</text>
+   </g>
+   <g id="text_33">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1d2939" x="765.58806" y="371.487056" transform="rotate(-0 765.58806 371.487056)">Interventions</text>
+   </g>
+   <g id="text_34">
+    <text style="font-size: 8px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #667085" x="765.58806" y="391.951633" transform="rotate(-0 765.58806 391.951633)">guardrail · flow · exits</text>
+   </g>
+   <g id="patch_23">
+    <path d="M 615.391599 401.218974
+Q 653.871609 341.449731 691.504313 282.996569
+" style="fill: none; stroke: #17324d; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 687.657388 285.277177
+L 691.504313 282.996569
+L 691.020645 287.442474
+" style="fill: none; stroke: #17324d; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="text_35">
+    <text style="font-size: 7.5px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #667085" x="653.871979" y="331.188493" transform="rotate(-0 653.871979 331.188493)">metrics</text>
+   </g>
+   <g id="patch_24">
+    <path d="M 615.533566 287.409142
+Q 653.872244 234.665105 691.290611 183.187177
+" style="fill: none; stroke: #17324d; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 687.320978 185.246793
+L 691.290611 183.187177
+L 690.556524 187.598652
+" style="fill: none; stroke: #17324d; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="text_36">
+    <text style="font-size: 7.5px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #667085" x="653.871979" y="224.247775" transform="rotate(-0 653.871979 224.247775)">logs</text>
+   </g>
+   <g id="patch_25">
+    <path d="M 765.58806 214.531426
+Q 765.58806 229.3256 765.58806 242.554527
+" style="fill: none; stroke: #e67e22; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 767.58806 238.554527
+L 765.58806 242.554527
+L 763.58806 238.554527
+" style="fill: none; stroke: #e67e22; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="text_37">
+    <text style="font-size: 7.5px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #667085" x="765.58806" y="219.065622" transform="rotate(-0 765.58806 219.065622)">retrieve</text>
+   </g>
+   <g id="patch_26">
+    <path d="M 765.58806 314.193159
+Q 765.58806 327.209968 765.58806 338.66153
+" style="fill: none; stroke: #e67e22; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 767.58806 334.66153
+L 765.58806 338.66153
+L 763.58806 334.66153
+" style="fill: none; stroke: #e67e22; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="text_38">
+    <text style="font-size: 7.5px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #667085" x="765.58806" y="316.950668" transform="rotate(-0 765.58806 316.950668)">recommend</text>
+   </g>
+   <g id="text_39">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #2e8b57" x="908.813804" y="130.694441" transform="rotate(-0 908.813804 130.694441)">D  输出与评估</text>
+   </g>
+   <g id="text_40">
+    <text style="font-size: 8.5px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #667085" x="908.813804" y="152.088587" transform="rotate(-0 908.813804 152.088587)">Decision support</text>
+   </g>
+   <g id="text_41">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1d2939" x="998.687959" y="172.157508" transform="rotate(-0 998.687959 172.157508)">Re-simulation</text>
+   </g>
+   <g id="text_42">
+    <text style="font-size: 8px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #667085" x="998.687959" y="192.653334" transform="rotate(-0 998.687959 192.653334)">same seed · paired</text>
+   </g>
+   <g id="text_43">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1d2939" x="998.687959" y="271.887126" transform="rotate(-0 998.687959 271.887126)">Comparison</text>
+   </g>
+   <g id="text_44">
+    <text style="font-size: 8px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #667085" x="998.687959" y="292.350608" transform="rotate(-0 998.687959 292.350608)">peak density · flow</text>
+   </g>
+   <g id="text_45">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1d2939" x="998.687959" y="371.487056" transform="rotate(-0 998.687959 371.487056)">Artifacts</text>
+   </g>
+   <g id="text_46">
+    <text style="font-size: 8px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #667085" x="998.687959" y="391.982883" transform="rotate(-0 998.687959 391.982883)">Markdown · PDF · JSON</text>
+   </g>
+   <g id="patch_27">
+    <path d="M 838.313469 379.59355
+Q 877.662546 280.937546 916.431744 183.735413
+" style="fill: none; stroke: #2e8b57; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 913.092173 186.709848
+L 916.431744 183.735413
+L 916.80755 188.191731
+" style="fill: none; stroke: #2e8b57; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="text_47">
+    <text style="font-size: 7.5px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #667085" x="877.662205" y="270.677737" transform="rotate(-0 877.662205 270.677737)">parameterize</text>
+   </g>
+   <g id="patch_28">
+    <path d="M 918.123478 214.531426
+Q 918.123478 229.3256 918.123478 242.554527
+" style="fill: none; stroke: #2e8b57; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 920.123478 238.554527
+L 918.123478 242.554527
+L 916.123478 238.554527
+" style="fill: none; stroke: #2e8b57; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="text_48">
+    <text style="font-size: 7.5px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #667085" x="918.123478" y="219.065622" transform="rotate(-0 918.123478 219.065622)">run</text>
+   </g>
+   <g id="patch_29">
+    <path d="M 918.123478 314.193159
+Q 918.123478 327.209968 918.123478 338.66153
+" style="fill: none; stroke: #2e8b57; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 920.123478 334.66153
+L 918.123478 338.66153
+L 916.123478 334.66153
+" style="fill: none; stroke: #2e8b57; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="text_49">
+    <text style="font-size: 7.5px; font-family: 'Noto Sans SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #667085" x="918.123478" y="316.950668" transform="rotate(-0 918.123478 316.950668)">export</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p34903800cb">
+   <rect x="8.64" y="8.64" width="1109.99952" height="526.79952"/>
+  </clipPath>
+ </defs>
+</svg>
