@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-08-24T07:00:24.740089+00:00",
+  "scenario": "accident",
+  "mode": "local_physics_only",
+  "agents": 300,
+  "steps": 120,
+  "seed": 20260824,
+  "elapsed_seconds": 2.1061,
+  "steps_per_second": 56.98,
+  "peak_density": 8.91,
+  "max_agents_seen": 157,
+  "api_calls_used": 0,
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "recorded_at": "2026-04-28",
+  "evidence_type": "historical_target_calibration",
+  "current_public_benchmark": false,
+  "scenario": "accident",
+  "parameters": {
+    "max_agents": 300,
+    "duration_steps": 300,
+    "arrival_rate_north": 8.0,
+    "arrival_rate_south": 8.0,
+    "normal_pedestrian_ratio": 60,
+    "group_family_ratio": 25,
+    "vulnerable_ratio": 15,
+    "local_radius": 0.463
+  },
+  "target_peak_density_people_per_m2": 16.4,
+  "calibrated_peak_density_people_per_m2": 16.33,
+  "absolute_gap_people_per_m2": 0.07,
+  "relative_calibration_error": 0.0043,
+  "interpretation": "This is a historical fit to a known target, not model accuracy or independent validation."
+}

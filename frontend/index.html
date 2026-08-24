@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZhiYan Agent | AI Public Safety Simulation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/styles.css?v=14" />
+    <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.15/dist/hls.min.js"></script>
+  </head>
+  <body>
+    <video id="hero-video" class="hero-video" muted autoplay loop playsinline></video>
+    <div class="hero-overlay hero-overlay-left"></div>
+    <div class="hero-overlay hero-overlay-bottom"></div>
+    <div class="hero-grid-lines" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="hero-glow" aria-hidden="true">
+      <svg viewBox="0 0 800 400" class="hero-glow-svg">
+        <defs>
+          <filter id="hero-blur">
+            <feGaussianBlur stdDeviation="25"></feGaussianBlur>
+          </filter>
+        </defs>
+        <ellipse cx="400" cy="160" rx="320" ry="110" fill="#0b4a3a" opacity="0.62" filter="url(#hero-blur)"></ellipse>
+        <ellipse cx="400" cy="170" rx="210" ry="72" fill="#5ed29c" opacity="0.22" filter="url(#hero-blur)"></ellipse>
+      </svg>
+    </div>
+    <header class="site-header">
+      <div class="site-logo">
+        <div class="site-logo-mark"></div>
+        <div>
+          <div class="site-logo-title">ZhiYan Agent</div>
+          <div class="site-logo-subtitle">Urban Crowd Intelligence Suite</div>
+        </div>
+      </div>
+      <nav class="site-nav">
+        <a href="#control-shell">CONTROL</a>
+        <a href="#sandbox-shell">SANDBOX</a>
+        <a href="#cognition-shell">COGNITION</a>
+        <a href="#report-shell">REPORT</a>
+      </nav>
+    </header>
+    <div class="dashboard-shell">
+      <div class="dashboard">
+        <div class="workspace-panel">
+          <div class="control-bar bento-card liquid-glass" id="control-shell">
+            <div class="panel-eyebrow">Career-Ready Simulation Interface</div>
+            <div class="control-header">
+              <div>
+                <h1>ZhiYan Agent | Digital Twin Command Deck</h1>
+                <p class="control-subtitle">高保真人群动力学、快慢双脑协同、可解释干预闭环</p>
+              </div>
+              <div class="badges">
+                <span class="badge">Local Engine</span>
+                <span class="badge">NumPy Simulation</span>
+              </div>
+            </div>
+            <div class="ops-marquee" id="ops-marquee">本地物理仿真模式 | LLM Provider 检测中</div>
+            <div class="ops-dashboard">
+              <div class="ops-card">
+                <span class="ops-label">总活跃 Agent</span>
+                <strong id="ops-active-total">0</strong>
+              </div>
+              <div class="ops-card">
+                <span class="ops-label">System 1</span>
+                <strong id="ops-system1">0</strong>
+              </div>
+              <div class="ops-card">
+                <span class="ops-label">System 2</span>
+                <strong id="ops-system2">0</strong>
+              </div>
+            </div>
+            <div class="control-scroll">
+              <div class="control-inputs">
+                <div class="form-group">
+                  <label for="scenario-select">演算场景</label>
+                  <select id="scenario-select"></select>
+                </div>
+                <div class="form-group">
+                  <label for="agent-count">Agent 容量: <span id="agent-count-label">96</span></label>
+                  <input id="agent-count" type="range" min="40" max="800" step="4" value="96" />
+                </div>
+                <div class="form-group">
+                  <label for="north-rate">北入口 (人/s): <span id="north-rate-label">1.2</span></label>
+                  <input id="north-rate" type="range" min="0.1" max="12.0" step="0.1" value="1.2" />
+                </div>
+                <div class="form-group">
+                  <label for="south-rate">南入口 (人/s): <span id="south-rate-label">1.2</span></label>
+                  <input id="south-rate" type="range" min="0.1" max="12.0" step="0.1" value="1.2" />
+                </div>
+                <div class="form-group distribution-group">
+                  <label>人群分布结构: <span id="population-total-label">100%</span></label>
+                  <div class="distribution-grid">
+                    <label for="normal-pedestrian-ratio">常态行人
+                      <input id="normal-pedestrian-ratio" type="range" min="0" max="100" step="1" value="60" />
+                      <span id="normal-pedestrian-ratio-label">60%</span>
+                    </label>
+                    <label for="group-family-ratio">结伴群体
+                      <input id="group-family-ratio" type="range" min="0" max="100" step="1" value="25" />
+                      <span id="group-family-ratio-label">25%</span>
+                    </label>
+                    <label for="vulnerable-ratio">弱势群体
+                      <input id="vulnerable-ratio" type="range" min="0" max="100" step="1" value="15" />
+                      <span id="vulnerable-ratio-label">15%</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group hidden" id="mitigation-strategy-group">
+                  <label for="mitigation-strategy">干预策略选择 (Intervention Strategy)</label>
+                  <select id="mitigation-strategy">
+                    <option value="none">不干预</option>
+                    <option value="central_guardrail">中央物理护栏 (Central Guardrail)</option>
+                    <option value="one_way_flow">单向通行导流 (One-way Flow)</option>
+                    <option value="widen_exits">拓宽出口 (Widen Exits)</option>
+                  </select>
+                </div>
+                <div class="form-group api-toggle-group">
+                  <label class="api-toggle-label"><input id="use-api" type="checkbox" disabled /> 启用慢脑 LLM 推理（密度超阈值自动触发）</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="canvas-container bento-card liquid-glass" id="sandbox-shell">
+            <button id="fullscreen-exit-button" class="secondary fullscreen-exit-button hidden" type="button">✖ 退出推演并恢复布局</button>
+            <div class="canvas-header">
+              <div>
+                <div class="panel-eyebrow">Twin Sandbox</div>
+                <h2>2.5D Isometric Crowd Sandbox</h2>
+              </div>
+              <div class="canvas-header-actions">
+                <button id="run-button" class="sandbox-run-button">▶ 开始推演</button>
+                <span id="risk-badge" class="badge badge-blue">系统就绪</span>
+              </div>
+            </div>
+            <div class="canvas-wrapper">
+              <canvas id="sandbox" width="1200" height="800"></canvas>
+              <div id="agent-insight-tag" class="agent-insight-tag hidden" aria-hidden="true"></div>
+              <div id="legend-panel" class="legend-panel">
+                <div class="legend-row"><span class="legend-dot legend-normal"></span>常态行人 (标准速度 / 独立寻路)</div>
+                <div class="legend-row"><span class="legend-dot legend-group"></span>结伴群体 (相邻移动 / 内聚保持)</div>
+                <div class="legend-row"><span class="legend-dot legend-vulnerable"></span>弱势群体 (低速 / 易受横向排斥)</div>
+              </div>
+              <button id="clear-agent-lock" class="lock-clear hidden secondary">取消 Agent 锁定</button>
+            </div>
+            <div class="timeline">
+              <div class="timeline-label"><span>Sim Time</span> <strong id="sim-time">0.0s</strong></div>
+              <div class="timeline-label"><span>Active Agents</span> <strong id="active-agents">0</strong></div>
+              <div class="timeline-label"><span>Peak Density</span> <strong id="peak-density">0.00</strong></div>
+              <div class="timeline-label"><span>Vel Decay</span> <strong id="vel-decay">1.000</strong></div>
+              <div class="timeline-label"><span>Conflicts</span> <strong id="conflict-count">0</strong></div>
+              <div class="timeline-label"><span>Exit Rate</span> <strong id="exit-rate">0.0%</strong></div>
+              <div class="timeline-label"><span>Dwell Steps</span> <strong id="dwell-steps">0.0</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="right-panel">
+          <div class="bento-card validation-card liquid-glass">
+            <div class="panel-eyebrow">Real vs. Sim</div>
+            <h2>虚实交叉验证看板</h2>
+            <div class="validation-content">
+              <div class="validation-item">
+                <span class="label">真实事故基准</span>
+                <strong class="value" id="historical-baseline">12.0 - 16.0 <small>人/m²</small></strong>
+              </div>
+              <div class="validation-item">
+                <span class="label">实时仿真涌现</span>
+                <strong class="value highlight" id="sim-peak-density">0.00 <small>人/m²</small></strong>
+              </div>
+            </div>
+            <div class="progress-container">
+              <div class="progress-bar" id="fit-progress" style="width: 0%;"></div>
+            </div>
+            <div class="fit-status" id="fit-status">等待推演数据...</div>
+          </div>
+
+          <div class="bento-card log-card liquid-glass" id="cognition-shell">
+            <div class="log-header">
+              <div>
+                <div class="panel-eyebrow">System 2 Stream</div>
+                <h2>慢脑认知流</h2>
+              </div>
+              <span class="badge" id="provider-model">未配置</span>
+            </div>
+            <div class="agent-lock-panel">
+              <div>
+                <div class="lock-title">第一人称锁定视角</div>
+                <div id="agent-lock-status" class="lock-status">全局滚动模式：显示全体 Agent 实时慢脑日志</div>
+              </div>
+              <span id="agent-lock-chip" class="lock-chip hidden">Agent #0</span>
+            </div>
+            <div id="log-stream">系统就绪。等待触发...</div>
+          </div>
+
+          <div class="bento-card report-card liquid-glass" id="report-shell">
+            <div class="panel-eyebrow">RAG Diagnostics</div>
+            <h2>诊断报告</h2>
+            <button id="generateReportBtn" class="primary-btn" disabled>生成全屏 RAG 诊断报告</button>
+            <button id="downloadPdfBtn" class="primary-btn" disabled style="margin-top: 8px;">下载 PDF 报告</button>
+            <div class="report-card-note">报告将使用右侧实时仿真涌现密度、场景参数与慢脑日志生成，不再使用后端预设值。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button id="stop-button" class="secondary hidden" type="button">停止并退出</button>
+    <div id="report-modal" class="report-modal hidden" aria-hidden="true">
+      <div id="report-modal-backdrop" class="report-modal-backdrop"></div>
+      <div class="report-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="report-modal-title">
+        <div class="report-modal-header">
+          <div>
+            <h2 id="report-modal-title">RAG 诊断报告</h2>
+            <div id="report-modal-meta" class="report-modal-meta">等待生成...</div>
+          </div>
+          <button id="close-report-modal" class="secondary">关闭</button>
+        </div>
+        <div id="report-history" class="report-history"></div>
+        <div id="reportContent" class="markdown-body report-modal-body"></div>
+      </div>
+    </div>
+    <script src="/assets/app.js?v=25"></script>
+  </body>
+</html>

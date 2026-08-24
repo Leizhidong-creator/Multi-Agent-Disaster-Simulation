@@ -1,0 +1,39 @@
+GB 50016 Fire Safety Rules for Zhiyan Agent RAG
+
+[GB50016-CH-003]
+Title: Public building evacuation door width
+Article: 5.5.18
+Rule:
+- Public building evacuation doors and corridors must keep adequate clear width.
+- Doors in high-occupancy venues should not have thresholds.
+- Net width for doors in crowded venues should not be less than 1.40 m.
+- Evacuation corridors in public buildings should not be less than 1.10 m wide.
+
+[GB50016-CH-004]
+Title: Requirements for crowded public venues
+Article: 5.5.19
+Rule:
+- Evacuation doors in crowded venues should not have thresholds.
+- Outdoor evacuation passages should not be less than 3.00 m wide.
+- The passage should connect directly to an open and spacious safe area.
+
+[GB50016-CH-011]
+Title: Width control and guardrails in stepped passages
+Article: Explanatory note
+Rule:
+- Oversized stepped walkways increase instability and trampling risk.
+- When a stepped passage is wider than 4 m, a guardrail should be installed every 2 m.
+- Physical separation is a valid measure to reduce lateral force propagation.
+
+[GB50016-CH-015]
+Title: Public building evacuation distance
+Article: 5.5.17
+Rule:
+- The direct distance from a room evacuation door to the nearest safe exit should remain within code limits.
+- Staircases should connect directly to the outside whenever possible.
+- When direct outdoor connection is difficult, the first floor should use an enlarged protected space.
+
+[Design Notes for What-If Mitigation]
+- Prioritize one-way splitting of opposing streams inside bottlenecks.
+- Mark guardrail location, affected width and expected density reduction.
+- Track before/after peak density, deadlock duration and slow-brain trigger count.

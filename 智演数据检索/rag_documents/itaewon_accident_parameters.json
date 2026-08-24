@@ -1,0 +1,395 @@
+{
+  "document_info": {
+    "title": "梨泰院踩踏事故关键参数数据集",
+    "description": "用于智演Agent系统的历史回溯交叉验证数据锚定",
+    "version": "1.0",
+    "created_date": "2026-04-13",
+    "data_source": "权威学术论文与事故调查报告综合提取"
+  },
+  "spatial_parameters": {
+    "category": "空间网格参数",
+    "parameters": [
+      {
+        "id": "SP-001",
+        "name": "事故核心区域尺寸",
+        "value": "5.7m × 3.2m",
+        "unit": "米",
+        "description": "梨泰院事故伤亡最严重的漏斗形巷道核心窄巷区域",
+        "source": "韩国警方调查报告、南都大数据研究院",
+        "confidence": "high"
+      },
+      {
+        "id": "SP-002",
+        "name": "事故核心区域面积",
+        "value": 18.24,
+        "unit": "平方米",
+        "description": "长5.7米×宽3.2米计算得出的核心事故区域面积",
+        "source": "韩国警方调查报告",
+        "confidence": "high"
+      },
+      {
+        "id": "SP-003",
+        "name": "巷道总长度",
+        "value": 45,
+        "unit": "米",
+        "description": "梨泰院事故发生的漏斗形巷道总长度",
+        "source": "事故现场勘查报告",
+        "confidence": "medium"
+      },
+      {
+        "id": "SP-004",
+        "name": "巷道宽度变化",
+        "value": "3.2m-6m",
+        "unit": "米",
+        "description": "漏斗形巷道从窄端到宽端的宽度变化范围",
+        "source": "现场测绘数据",
+        "confidence": "medium"
+      },
+      {
+        "id": "SP-005",
+        "name": "沙盒网格分辨率建议",
+        "value": "0.4m × 0.4m",
+        "unit": "米/格",
+        "description": "建议仿真沙盒中每个网格单元的物理尺寸，确保每个网格可容纳约1人",
+        "source": "系统设计规范",
+        "confidence": "high"
+      },
+      {
+        "id": "SP-006",
+        "name": "核心区域网格数量",
+        "value": "14 × 8 = 112",
+        "unit": "格",
+        "description": "5.7m×3.2m区域按0.4m分辨率划分的网格数量",
+        "source": "计算值",
+        "confidence": "high"
+      }
+    ]
+  },
+  "density_parameters": {
+    "category": "人群密度参数",
+    "parameters": [
+      {
+        "id": "DP-001",
+        "name": "事故核心区域聚集人数",
+        "value": 300,
+        "unit": "人",
+        "description": "事故发生时在18.24平方米核心区域内聚集的人数",
+        "source": "韩国警方调查报告",
+        "confidence": "high"
+      },
+      {
+        "id": "DP-002",
+        "name": "峰值致死密度",
+        "value": 16.4,
+        "unit": "人/平方米",
+        "description": "300人/18.24平方米计算得出的峰值人群密度",
+        "source": "计算值",
+        "confidence": "high"
+      },
+      {
+        "id": "DP-003",
+        "name": "致死密度范围",
+        "value": "12-16",
+        "unit": "人/平方米",
+        "description": "学术文献中认定的可导致窒息死亡的极端人群密度范围",
+        "source": "Safety Science期刊论文",
+        "confidence": "high"
+      },
+      {
+        "id": "DP-004",
+        "name": "临界危险密度",
+        "value": 5,
+        "unit": "人/平方米",
+        "description": "超过此密度时可能发生危险情况的临界值，应触发系统警报",
+        "source": "Löhner and Haug, 2014; 学术共识",
+        "confidence": "high"
+      },
+      {
+        "id": "DP-005",
+        "name": "踩踏事故触发密度",
+        "value": 7,
+        "unit": "人/平方米",
+        "description": "每平方米达到7人以上时可能引发踩踏事故",
+        "source": "人群安全研究文献",
+        "confidence": "high"
+      },
+      {
+        "id": "DP-006",
+        "name": "安全密度上限",
+        "value": 4,
+        "unit": "人/平方米",
+        "description": "专家认为每平方米超过4人时安全事件风险显著增加",
+        "source": "Dong-A Science报道",
+        "confidence": "medium"
+      },
+      {
+        "id": "DP-007",
+        "name": "人员叠层数",
+        "value": 7,
+        "unit": "层",
+        "description": "事故现场人员叠压的最大层数",
+        "source": "现场救援报告",
+        "confidence": "high"
+      }
+    ]
+  },
+  "flow_parameters": {
+    "category": "人流速率参数",
+    "parameters": [
+      {
+        "id": "FP-001",
+        "name": "总聚集人数",
+        "value": 100000,
+        "unit": "人",
+        "description": "事发当晚梨泰院区域聚集的总人数",
+        "source": "韩国警方估计",
+        "confidence": "medium"
+      },
+      {
+        "id": "FP-002",
+        "name": "双向人流速率范围",
+        "value": "1-8",
+        "unit": "人/秒",
+        "description": "双向人流走廊中行人流率的典型范围",
+        "source": "ResearchGate行人流研究",
+        "confidence": "high"
+      },
+      {
+        "id": "FP-003",
+        "name": "人行道通行能力等级",
+        "value": "2, 4, 6, 10",
+        "unit": "人/分钟/英尺宽度",
+        "description": "Fruin服务水平标准中定义的行人流率关键阈值",
+        "source": "TRB Highway Capacity Manual",
+        "confidence": "high"
+      },
+      {
+        "id": "FP-004",
+        "name": "人行道通行能力（公制）",
+        "value": "7, 13, 20, 33",
+        "unit": "人/分钟/米宽度",
+        "description": "Fruin服务水平标准的公制换算值",
+        "source": "TRB Highway Capacity Manual",
+        "confidence": "high"
+      },
+      {
+        "id": "FP-005",
+        "name": "峰值人流输入率建议值",
+        "value": "2.5-3.5",
+        "unit": "人/秒",
+        "description": "建议沙盒Spawner在事故模拟时使用的峰值人流输入率",
+        "source": "基于10万人/4小时估算",
+        "confidence": "medium"
+      },
+      {
+        "id": "FP-006",
+        "name": "正常人流输入率",
+        "value": "1.0",
+        "unit": "人/秒",
+        "description": "平常周末的正常人流输入率，用于梯度压力测试基准",
+        "source": "系统设计建议值",
+        "confidence": "medium"
+      }
+    ]
+  },
+  "velocity_parameters": {
+    "category": "行人速度参数",
+    "parameters": [
+      {
+        "id": "VP-001",
+        "name": "自由行走速度",
+        "value": "1.2-1.3",
+        "unit": "米/秒",
+        "description": "低密度下行人的正常行走速度",
+        "source": "UCY/ETH数据集; Fruin研究",
+        "confidence": "high"
+      },
+      {
+        "id": "VP-002",
+        "name": "高密度行走速度",
+        "value": 0.3,
+        "unit": "米/秒",
+        "description": "高密度人群（>5人/平方米）中行人的移动速度",
+        "source": "Lund University研究",
+        "confidence": "high"
+      },
+      {
+        "id": "VP-003",
+        "name": "停止移动密度阈值",
+        "value": 5.4,
+        "unit": "人/平方米",
+        "description": "行人几乎无法移动的拥堵密度阈值",
+        "source": "行人流基础研究",
+        "confidence": "high"
+      },
+      {
+        "id": "VP-004",
+        "name": "快脑决策响应时间",
+        "value": "10-50",
+        "unit": "毫秒",
+        "description": "传统寻路与避障算法的响应时间要求",
+        "source": "系统设计规范",
+        "confidence": "high"
+      }
+    ]
+  },
+  "level_of_service": {
+    "category": "Fruin服务水平标准",
+    "description": "行人设施服务水平分级标准，用于评估人群拥挤程度",
+    "levels": [
+      {
+        "level": "A",
+        "density_range": "< 0.31",
+        "unit": "人/平方米",
+        "flow_rate": "< 7",
+        "flow_unit": "人/分钟/米",
+        "description": "自由流动，行人可任意选择行走路径和速度",
+        "status": "安全"
+      },
+      {
+        "level": "B",
+        "density_range": "0.31-0.43",
+        "unit": "人/平方米",
+        "flow_rate": "7-13",
+        "flow_unit": "人/分钟/米",
+        "description": "基本自由流动，行人有充足空间选择路径",
+        "status": "安全"
+      },
+      {
+        "level": "C",
+        "density_range": "0.43-0.72",
+        "unit": "人/平方米",
+        "flow_rate": "13-20",
+        "flow_unit": "人/分钟/米",
+        "description": "受限流动，行人需调整步伐避开他人",
+        "status": "正常"
+      },
+      {
+        "level": "D",
+        "density_range": "0.72-1.08",
+        "unit": "人/平方米",
+        "flow_rate": "20-33",
+        "flow_unit": "人/分钟/米",
+        "description": "受限流动，行人难以自由选择路径",
+        "status": "注意"
+      },
+      {
+        "level": "E",
+        "density_range": "1.08-2.17",
+        "unit": "人/平方米",
+        "flow_rate": "33-49",
+        "flow_unit": "人/分钟/米",
+        "description": "拥挤流动，行人移动受限，可能出现停顿",
+        "status": "警告"
+      },
+      {
+        "level": "F",
+        "density_range": "> 2.17",
+        "unit": "人/平方米",
+        "flow_rate": "> 49",
+        "flow_unit": "人/分钟/米",
+        "description": "严重拥挤，行人移动极为困难，存在安全隐患",
+        "status": "危险"
+      }
+    ]
+  },
+  "casualty_data": {
+    "category": "伤亡数据",
+    "parameters": [
+      {
+        "id": "CD-001",
+        "name": "死亡人数",
+        "value": 154,
+        "unit": "人",
+        "description": "梨泰院踩踏事故确认死亡人数",
+        "source": "韩国官方通报",
+        "confidence": "high"
+      },
+      {
+        "id": "CD-002",
+        "name": "受伤人数",
+        "value": 100,
+        "unit": "人",
+        "description": "梨泰院踩踏事故受伤人数（约数）",
+        "source": "韩国官方通报",
+        "confidence": "medium"
+      },
+      {
+        "id": "CD-003",
+        "name": "外国人死亡人数",
+        "value": 26,
+        "unit": "人",
+        "description": "死亡人员中的外国公民人数",
+        "source": "韩国中央日报",
+        "confidence": "high"
+      }
+    ]
+  },
+  "spawner_config": {
+    "category": "沙盒发射器配置建议",
+    "description": "用于智演Agent系统Spawner模块的配置参数",
+    "configs": [
+      {
+        "id": "SC-001",
+        "name": "正常场景配置",
+        "arrival_rate_north": 0.5,
+        "arrival_rate_south": 0.5,
+        "unit": "人/秒",
+        "description": "平常周末的正常人流配置，用于基准测试"
+      },
+      {
+        "id": "SC-002",
+        "name": "高峰场景配置",
+        "arrival_rate_north": 1.5,
+        "arrival_rate_south": 1.5,
+        "unit": "人/秒",
+        "description": "节假日高峰期人流配置，用于压力测试"
+      },
+      {
+        "id": "SC-003",
+        "name": "事故场景配置",
+        "arrival_rate_north": 2.5,
+        "arrival_rate_south": 2.5,
+        "unit": "人/秒",
+        "description": "模拟事发当晚的极端人流配置，用于历史回溯验证"
+      }
+    ]
+  },
+  "references": [
+    {
+      "id": "REF-001",
+      "title": "A Crowd Disaster Study: The Itaewon Seoul Crush",
+      "journal": "PMC/NIH",
+      "year": 2024,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11456318"
+    },
+    {
+      "id": "REF-002",
+      "title": "Simulation of bi-directional pedestrian flow under high density",
+      "journal": "ScienceDirect",
+      "year": 2023,
+      "citations": 24,
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0960077923004605"
+    },
+    {
+      "id": "REF-003",
+      "title": "On Critical Densities and Velocities for Pedestrians Entering a Crowd",
+      "journal": "ResearchGate",
+      "year": 2014,
+      "authors": "Löhner and Haug"
+    },
+    {
+      "id": "REF-004",
+      "title": "Revisiting the level-of-service framework for pedestrian facilities",
+      "journal": "ScienceDirect",
+      "year": 2022,
+      "citations": 44
+    },
+    {
+      "id": "REF-005",
+      "title": "韩国梨泰院踩踏事故背后：事发时人群密度或超16人/平方米",
+      "source": "南都大数据研究院",
+      "year": 2022
+    }
+  ]
+}
