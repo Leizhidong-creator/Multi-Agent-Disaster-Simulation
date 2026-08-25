@@ -231,10 +231,10 @@ def build_section_icons() -> None:
 
 
 def build_method_architecture() -> None:
-    """Build a compact English-only pipeline figure for the README."""
-    fig, ax = plt.subplots(figsize=(18.5, 7.0))
+    """Build a spacious English-only pipeline figure for the README."""
+    fig, ax = plt.subplots(figsize=(18.5, 9.2))
     ax.set_xlim(0, 18.5)
-    ax.set_ylim(0, 7.0)
+    ax.set_ylim(0, 9.2)
     ax.axis("off")
 
     blue = "#0072B2"
@@ -271,185 +271,163 @@ def build_method_architecture() -> None:
         if subtitle:
             ax.text(x + width / 2, y + 0.27, subtitle, fontsize=9.4, color=gray, ha="center", va="center")
 
-    section_label(0.35, 6.55, "a", "Continuous Crowd Dynamics", 11.35)
-    section_label(8.25, 3.62, "b", "Event-triggered Evidence Reasoning", 7.40)
-    section_label(15.90, 6.55, "c", "Counterfactual Evaluator", 2.25)
+    section_label(0.35, 8.72, "a", "Continuous Crowd Dynamics", 11.55)
+    section_label(7.98, 5.25, "b", "Event-triggered Evidence Reasoning", 7.70)
+    section_label(15.90, 8.72, "c", "Counterfactual Evaluator", 2.25)
 
-    module(0.45, 4.15, 1.65, 1.55, "Scene Tokens", "", edge=blue, face=light_blue)
+    module(0.45, 6.35, 1.80, 1.70, "Scene Tokens", "", edge=blue, face=light_blue, title_size=13.5)
     for index, label in enumerate(("Geometry", "Profiles", "Boundary")):
-        y = 5.16 - index * 0.33
+        y = 7.40 - index * 0.34
         ax.add_patch(Circle((0.68, y), 0.055, facecolor=blue, edgecolor="none"))
-        ax.text(0.83, y, label, fontsize=9.3, color=gray, va="center")
+        ax.text(0.83, y, label, fontsize=10.0, color=gray, va="center")
 
-    _box(ax, 2.61, 4.02, 2.55, 1.80, edge=blue, face=COLORS["paper"], radius=0.05, linewidth=1.15)
-    ax.text(3.885, 5.49, "Interaction Encoder", fontsize=12.5, fontweight="bold", ha="center", va="center")
+    _box(ax, 2.85, 6.22, 2.80, 1.96, edge=blue, face=COLORS["paper"], radius=0.05, linewidth=1.15)
+    ax.text(4.25, 7.82, "Interaction Encoder", fontsize=13.8, fontweight="bold", ha="center", va="center")
     for layer in range(4):
-        x = 2.91 + layer * 0.42
+        x = 3.20 + layer * 0.45
         face = light_blue if layer % 2 == 0 else COLORS["paper"]
-        _box(ax, x, 4.43, 0.70, 0.70, edge=sky, face=face, radius=0.03, linewidth=0.9)
+        _box(ax, x, 6.72, 0.74, 0.74, edge=sky, face=face, radius=0.03, linewidth=0.9)
         for row in range(2):
             for column in range(2):
-                ax.add_patch(Circle((x + 0.22 + column * 0.26, 4.64 + row * 0.25), 0.042, facecolor=blue, edgecolor="none"))
-    ax.text(4.88, 5.03, "× L", fontsize=10.5, color=blue, fontweight="bold", ha="center")
-    ax.text(3.885, 4.20, r"$N(i)$  ·  $f_{ij}$  ·  collision", fontsize=9.4, color=gray, ha="center")
+                ax.add_patch(Circle((x + 0.23 + column * 0.27, 6.94 + row * 0.27), 0.044, facecolor=blue, edgecolor="none"))
+    ax.text(5.30, 7.33, "× L", fontsize=11.0, color=blue, fontweight="bold", ha="center")
+    ax.text(4.25, 6.43, "local interaction · collision", fontsize=9.8, color=gray, ha="center")
 
-    module(5.70, 4.15, 2.45, 1.55, "Temporal Rollout", "state transition", edge=blue, face=COLORS["paper"])
-    state_labels = (r"$X_t$", r"$X_{t+1}$", r"$\cdots$", r"$X_{t+H}$")
+    module(6.25, 6.35, 2.60, 1.70, "Temporal Rollout", "state transition", edge=blue, face=COLORS["paper"], title_size=13.5)
+    state_labels = (r"$X_t$", r"$X_{t+1}$", "…", r"$X_{t+H}$")
     for index, label in enumerate(state_labels):
-        x = 5.94 + index * 0.51
-        _box(ax, x, 4.66, 0.42, 0.45, edge=sky, face=light_blue, radius=0.04, linewidth=0.9)
-        ax.text(x + 0.21, 4.885, label, fontsize=9.3, fontweight="bold", ha="center", va="center")
+        x = 6.52 + index * 0.53
+        _box(ax, x, 6.94, 0.44, 0.47, edge=sky, face=light_blue, radius=0.04, linewidth=0.9)
+        ax.text(x + 0.22, 7.175, label, fontsize=9.6, fontweight="bold", ha="center", va="center")
         if index < len(state_labels) - 1:
-            _arrow(ax, (x + 0.42, 4.885), (x + 0.50, 4.885), color=sky, width=0.9)
+            _arrow(ax, (x + 0.44, 7.175), (x + 0.52, 7.175), color=sky, width=0.9)
 
     gate = Polygon(
-        [(9.10, 5.78), (9.82, 4.92), (9.10, 4.06), (8.38, 4.92)],
+        [(9.92, 8.14), (10.72, 7.20), (9.92, 6.26), (9.12, 7.20)],
         closed=True,
         facecolor=light_amber,
         edgecolor=amber,
         linewidth=1.25,
     )
     ax.add_patch(gate)
-    ax.text(9.10, 5.12, "Risk Gate", fontsize=11.5, fontweight="bold", ha="center", va="center")
-    ax.text(9.10, 4.73, r"$r_t > \tau$", fontsize=10.5, color=vermillion, ha="center", va="center")
+    ax.text(9.92, 7.43, "Risk Gate", fontsize=12.5, fontweight="bold", ha="center", va="center")
+    ax.text(9.92, 7.00, "threshold", fontsize=10.0, color=vermillion, ha="center", va="center")
 
-    module(10.34, 4.15, 1.46, 1.55, "Crowd State", "", edge=blue, face=light_blue)
+    module(11.02, 6.35, 1.65, 1.70, "Crowd State", "", edge=blue, face=light_blue, title_size=13.0)
     for index, label in enumerate(("density", "velocity", "conflict")):
-        ax.text(11.07, 5.13 - index * 0.28, label, fontsize=9.0, color=gray, ha="center", va="center")
-    ax.text(11.07, 4.31, r"$D_t$ · $V_t$ · $C_t$", fontsize=8.8, color=gray, ha="center", va="center")
+        ax.text(11.845, 7.36 - index * 0.30, label, fontsize=9.8, color=gray, ha="center", va="center")
 
-    _arrow(ax, (2.10, 4.92), (2.61, 4.92), color=blue, width=1.5)
-    _arrow(ax, (5.16, 4.92), (5.70, 4.92), color=blue, width=1.5)
-    _arrow(ax, (8.15, 4.92), (8.38, 4.92), color=blue, width=1.5)
-    _arrow(ax, (9.82, 4.92), (10.34, 4.92), color=blue, width=1.5)
+    _arrow(ax, (2.25, 7.20), (2.85, 7.20), color=blue, width=1.6)
+    _arrow(ax, (5.65, 7.20), (6.25, 7.20), color=blue, width=1.6)
+    _arrow(ax, (8.85, 7.20), (9.12, 7.20), color=blue, width=1.6)
+    _arrow(ax, (10.72, 7.20), (11.02, 7.20), color=blue, width=1.6)
 
-    module(8.34, 1.35, 1.52, 1.42, "Risk Context", r"$q_r = \{D,V,C\}$", edge=vermillion, face=light_amber)
-    module(10.26, 1.35, 1.70, 1.42, "Evidence\nRetriever", "top-k + metadata", edge=amber, face=COLORS["paper"], title_size=10.8)
-    module(12.36, 1.35, 1.74, 1.42, "Evidence\nReasoner", r"$q_r \leftrightarrow K$", edge=amber, face=COLORS["paper"], title_size=10.8)
-    module(14.50, 1.35, 1.20, 1.42, "Strategy", r"$\pi_\theta(z)$", edge=amber, face=light_amber)
+    module(8.05, 2.75, 1.65, 1.55, "Risk Context", "risk descriptors", edge=vermillion, face=light_amber, title_size=12.2)
+    module(10.15, 2.75, 1.82, 1.55, "Evidence\nRetriever", "top-k + metadata", edge=amber, face=COLORS["paper"], title_size=11.5)
+    module(12.42, 2.75, 1.86, 1.55, "Evidence\nReasoner", "evidence-grounded", edge=amber, face=COLORS["paper"], title_size=11.5)
+    module(14.73, 2.75, 1.15, 1.55, "Strategy", "parameters", edge=amber, face=light_amber, title_size=11.5)
 
-    ax.plot([9.10, 9.10], [4.06, 2.77], color=vermillion, linewidth=1.25)
-    _arrow(ax, (9.10, 2.77), (9.10, 2.70), color=vermillion, width=1.25)
-    ax.text(9.30, 3.34, "trigger", fontsize=9.0, color=vermillion, va="center")
-    _arrow(ax, (9.86, 2.06), (10.26, 2.06), color=amber, width=1.3)
-    _arrow(ax, (11.96, 2.06), (12.36, 2.06), color=amber, width=1.3)
-    _arrow(ax, (14.10, 2.06), (14.50, 2.06), color=amber, width=1.3)
+    ax.plot([9.92, 9.92, 8.88], [6.26, 4.70, 4.70], color=vermillion, linewidth=1.35)
+    _arrow(ax, (8.88, 4.70), (8.88, 4.30), color=vermillion, width=1.35)
+    ax.text(10.12, 5.02, "risk trigger", fontsize=9.6, color=vermillion, va="center")
+    _arrow(ax, (9.70, 3.52), (10.15, 3.52), color=amber, width=1.4)
+    _arrow(ax, (11.97, 3.52), (12.42, 3.52), color=amber, width=1.4)
+    _arrow(ax, (14.28, 3.52), (14.73, 3.52), color=amber, width=1.4)
 
-    _box(ax, 10.34, 0.34, 1.55, 0.58, edge=border, face=light_gray, radius=0.04, linewidth=0.9)
-    ax.text(11.115, 0.63, "Evidence Store  K", fontsize=9.6, fontweight="bold", color=gray, ha="center", va="center")
-    _arrow(ax, (11.115, 0.92), (11.115, 1.35), color=border, width=1.0, linestyle="--")
+    _box(ax, 10.23, 1.42, 1.66, 0.62, edge=border, face=light_gray, radius=0.04, linewidth=0.9)
+    ax.text(11.06, 1.73, "Evidence Store", fontsize=9.8, fontweight="bold", color=gray, ha="center", va="center")
+    _arrow(ax, (11.06, 2.04), (11.06, 2.75), color=border, width=1.0, linestyle="--")
 
-    _box(ax, 16.02, 1.18, 2.16, 4.70, edge=green, face=light_green, radius=0.06, linewidth=1.2)
-    ax.text(17.10, 5.50, "Matched Seed", fontsize=11.8, fontweight="bold", color=green, ha="center")
-    ax.text(17.10, 5.17, "s = constant", fontsize=9.5, color=gray, ha="center")
-    module(16.30, 4.03, 1.60, 0.82, "Baseline", r"$\pi_0$", edge=green, face=COLORS["paper"])
-    module(16.30, 2.93, 1.60, 0.82, "Intervention", r"$\pi_1$", edge=green, face=COLORS["paper"])
-    _box(ax, 16.30, 1.55, 1.60, 0.98, edge=green, face=COLORS["paper"], radius=0.04, linewidth=1.0)
-    ax.text(17.10, 2.19, "Paired Δ", fontsize=11.0, fontweight="bold", ha="center")
-    ax.text(17.10, 1.83, "density · risk · flow", fontsize=8.8, color=gray, ha="center")
-    _arrow(ax, (17.10, 4.03), (17.10, 3.75), color=green, width=1.1)
-    _arrow(ax, (17.10, 2.93), (17.10, 2.53), color=green, width=1.1)
+    _box(ax, 16.12, 1.55, 2.05, 6.56, edge=green, face=light_green, radius=0.06, linewidth=1.2)
+    ax.text(17.145, 7.62, "Matched Seed", fontsize=12.5, fontweight="bold", color=green, ha="center")
+    ax.text(17.145, 7.25, "same initial state", fontsize=9.8, color=gray, ha="center")
+    module(16.38, 5.68, 1.53, 0.95, "Baseline", "control", edge=green, face=COLORS["paper"], title_size=12.0)
+    module(16.38, 4.30, 1.53, 0.95, "Intervention", "strategy", edge=green, face=COLORS["paper"], title_size=11.5)
+    _box(ax, 16.38, 2.45, 1.53, 1.22, edge=green, face=COLORS["paper"], radius=0.04, linewidth=1.0)
+    ax.text(17.145, 3.20, "Paired Δ", fontsize=11.5, fontweight="bold", ha="center")
+    ax.text(17.145, 2.78, "density · risk · flow", fontsize=8.8, color=gray, ha="center")
+    _arrow(ax, (17.145, 5.68), (17.145, 5.25), color=green, width=1.2)
+    _arrow(ax, (17.145, 4.30), (17.145, 3.67), color=green, width=1.2)
 
-    ax.plot([11.80, 15.80, 15.80, 16.02], [4.92, 4.92, 4.44, 4.44], color=blue, linewidth=1.25)
-    _arrow(ax, (15.80, 4.44), (16.30, 4.44), color=blue, width=1.25)
-    ax.plot([15.70, 15.86, 15.86], [2.06, 2.06, 3.34], color=amber, linewidth=1.25)
-    _arrow(ax, (15.86, 3.34), (16.30, 3.34), color=amber, width=1.25)
+    ax.plot([12.67, 15.76, 15.76, 16.12], [7.20, 7.20, 6.15, 6.15], color=blue, linewidth=1.35)
+    _arrow(ax, (15.76, 6.15), (16.38, 6.15), color=blue, width=1.35)
+    ax.plot([15.88, 16.00, 16.00], [3.52, 3.52, 4.77], color=amber, linewidth=1.35)
+    _arrow(ax, (16.00, 4.77), (16.38, 4.77), color=amber, width=1.35)
 
-    ax.text(0.45, 0.55, "Fast path", fontsize=9.4, color=blue, fontweight="bold")
-    ax.plot([1.20, 2.25], [0.60, 0.60], color=blue, linewidth=1.6)
-    ax.text(2.58, 0.55, "Triggered path", fontsize=9.4, color=amber, fontweight="bold")
-    ax.plot([3.72, 4.77], [0.60, 0.60], color=amber, linewidth=1.6)
-    ax.text(5.10, 0.55, "Paired evaluation", fontsize=9.4, color=green, fontweight="bold")
-    ax.plot([6.53, 7.58], [0.60, 0.60], color=green, linewidth=1.6)
+    ax.text(0.45, 0.60, "Fast path", fontsize=10.0, color=blue, fontweight="bold")
+    ax.plot([1.28, 2.38], [0.66, 0.66], color=blue, linewidth=1.7)
+    ax.text(2.75, 0.60, "Triggered path", fontsize=10.0, color=amber, fontweight="bold")
+    ax.plot([4.02, 5.12], [0.66, 0.66], color=amber, linewidth=1.7)
+    ax.text(5.50, 0.60, "Paired evaluation", fontsize=10.0, color=green, fontweight="bold")
+    ax.plot([7.02, 8.12], [0.66, 0.66], color=green, linewidth=1.7)
 
     _save_figure(fig, "method-architecture")
 
 
 def build_results_overview() -> None:
     interventions = json.loads((RESULTS / "interventions.json").read_text(encoding="utf-8"))
-    benchmark = json.loads((RESULTS / "benchmark.json").read_text(encoding="utf-8"))
     calibration = json.loads((RESULTS / "historical-calibration.json").read_text(encoding="utf-8"))
 
-    labels = ["中央护栏", "单向导流", "出口拓宽"]
-    reductions = [item["reduction_ratio"] * 100 for item in interventions["strategies"]]
+    labels = ["Baseline", "Guardrail", "One-way flow", "Widened exits"]
+    peak_density_runs = [
+        [run["peak_density"] for run in interventions["baseline"]["runs"]],
+        *[
+            [run["peak_density"] for run in strategy["runs"]]
+            for strategy in interventions["strategies"]
+        ],
+    ]
+    reductions = [0.0, *[item["reduction_ratio"] * 100 for item in interventions["strategies"]]]
     target = calibration["target_peak_density_people_per_m2"]
     reproduced = calibration["calibrated_peak_density_people_per_m2"]
     relative_error = calibration["relative_calibration_error"] * 100
 
-    fig = plt.figure(figsize=(16, 8.4))
-    grid = fig.add_gridspec(
+    fig, (ax_intervention, ax_calibration) = plt.subplots(
+        1,
         2,
-        3,
-        width_ratios=(1.45, 1, 1),
-        height_ratios=(1.12, 0.88),
-        left=0.055,
-        right=0.985,
-        bottom=0.12,
-        top=0.79,
-        hspace=0.42,
-        wspace=0.28,
+        figsize=(16, 6.8),
+        gridspec_kw={"width_ratios": (1.65, 1), "wspace": 0.28},
     )
-    fig.suptitle("实验结果与证据层级 / Results & Evidence", x=0.055, y=0.98, ha="left", fontsize=25, fontweight="bold", color=COLORS["ink"])
-    fig.text(0.055, 0.925, "可复现实验结果与项目规模统计分区呈现，避免将工程留档误读为模型精度", fontsize=14, color=COLORS["muted"])
+    fig.subplots_adjust(left=0.075, right=0.975, bottom=0.18, top=0.78)
+    fig.suptitle("Quantitative Results", x=0.075, y=0.96, ha="left", fontsize=25, fontweight="bold")
+    fig.text(0.075, 0.895, "Matched-seed intervention study and historical-scene reproduction", fontsize=13.5, color=COLORS["muted"])
 
-    ax_intervention = fig.add_subplot(grid[:, 0])
     positions = np.arange(len(labels))
-    bars = ax_intervention.barh(positions, reductions, color=["#79A9CE", COLORS["teal"], "#79A9CE"], height=0.54)
-    ax_intervention.set_title("A  干预效果 / Intervention", loc="left", fontsize=18, fontweight="bold", pad=18)
-    ax_intervention.text(0.0, 1.01, "相对 Baseline 的峰值密度降幅", transform=ax_intervention.transAxes, fontsize=12.5, color=COLORS["muted"], va="bottom")
-    ax_intervention.set_yticks(positions, labels)
-    ax_intervention.invert_yaxis()
-    ax_intervention.set_xlim(0, 27)
-    ax_intervention.set_xlabel("Peak-density reduction (%)")
-    ax_intervention.grid(axis="x", color="#E5EAF0", linewidth=0.9)
+    palette = [COLORS["muted"], COLORS["blue"], COLORS["teal"], COLORS["orange"]]
+    for seed_index in range(len(peak_density_runs[0])):
+        values = [group[seed_index] for group in peak_density_runs]
+        ax_intervention.plot(positions, values, color="#C7CDD6", linewidth=1.15, alpha=0.75, zorder=1)
+    for position, (values, color) in enumerate(zip(peak_density_runs, palette)):
+        jitter = np.linspace(-0.10, 0.10, len(values))
+        ax_intervention.scatter(position + jitter, values, s=52, color=color, edgecolor="white", linewidth=0.8, zorder=3)
+        mean = float(np.mean(values))
+        standard_deviation = float(np.std(values))
+        ax_intervention.errorbar(position, mean, yerr=standard_deviation, fmt="D", markersize=7, color=COLORS["ink"], capsize=5, linewidth=1.5, zorder=4)
+        if position > 0:
+            ax_intervention.text(position, 7.72, f"−{reductions[position]:.2f}%", ha="center", va="bottom", fontsize=11.5, fontweight="bold", color=color)
+    ax_intervention.set_title("a  Peak Density under Interventions", loc="left", fontsize=17, fontweight="bold", pad=15)
+    ax_intervention.set_ylabel("Peak density (persons / m²)")
+    ax_intervention.set_xticks(positions, labels)
+    ax_intervention.set_ylim(3.95, 8.05)
+    ax_intervention.grid(axis="y", color="#E5EAF0", linewidth=0.9)
     ax_intervention.set_axisbelow(True)
-    ax_intervention.spines["left"].set_visible(False)
-    ax_intervention.tick_params(axis="y", length=0, labelsize=14)
-    for bar, value in zip(bars, reductions):
-        ax_intervention.text(value + 0.55, bar.get_y() + bar.get_height() / 2, f"−{value:.2f}%", va="center", fontsize=14, fontweight="bold", color=COLORS["ink"])
-    ax_intervention.text(0.0, -0.14, "n = 3 fixed seeds · 300 Agent capacity · 120 steps", transform=ax_intervention.transAxes, fontsize=11, color=COLORS["muted"])
+    ax_intervention.text(0.0, -0.19, "Points: fixed seeds · diamonds: mean · error bars: Standard deviation", transform=ax_intervention.transAxes, fontsize=10.5, color=COLORS["muted"])
+    ax_intervention.text(0.0, -0.27, "n = 3 seeds · 300 Agent capacity · 120 steps", transform=ax_intervention.transAxes, fontsize=10.5, color=COLORS["muted"])
 
-    ax_calibration = fig.add_subplot(grid[0, 1])
-    ax_calibration.set_title("B  历史场景复现 / Calibration", loc="left", fontsize=18, fontweight="bold", pad=18)
-    ax_calibration.plot([target, reproduced], [1, 0], color=COLORS["blue"], linewidth=2.2, marker="o", markersize=9)
-    ax_calibration.set_yticks([1, 0], ["历史目标", "仿真复现"])
-    ax_calibration.set_xlim(16.20, 16.48)
-    ax_calibration.set_xlabel("峰值密度（人 / m²）")
-    ax_calibration.grid(axis="x", color="#E5EAF0", linewidth=0.9)
+    ax_calibration.set_title("b  Historical-scene Reproduction", loc="left", fontsize=17, fontweight="bold", pad=15)
+    ax_calibration.plot([0, 1], [target, reproduced], color=COLORS["blue"], linewidth=2.0, zorder=1)
+    ax_calibration.scatter([0], [target], s=95, marker="o", color=COLORS["blue"], edgecolor="white", linewidth=1.0, zorder=3)
+    ax_calibration.scatter([1], [reproduced], s=105, marker="D", color=COLORS["teal"], edgecolor="white", linewidth=1.0, zorder=3)
+    ax_calibration.set_xticks([0, 1], ["Historical target", "Simulation"])
+    ax_calibration.set_ylabel("Peak density (persons / m²)")
+    ax_calibration.set_xlim(-0.45, 1.45)
+    ax_calibration.set_ylim(16.26, 16.46)
+    ax_calibration.grid(axis="y", color="#E5EAF0", linewidth=0.9)
     ax_calibration.set_axisbelow(True)
-    ax_calibration.spines["left"].set_visible(False)
-    ax_calibration.tick_params(axis="y", length=0)
-    ax_calibration.text(target + 0.012, 1, f"{target:.2f}", va="center", fontsize=13, fontweight="bold")
-    ax_calibration.text(reproduced + 0.012, 0, f"{reproduced:.2f}", va="center", fontsize=13, fontweight="bold")
-    ax_calibration.text(0.98, 0.53, f"{relative_error:.2f}%", transform=ax_calibration.transAxes, fontsize=27, fontweight="bold", color=COLORS["blue"], ha="right")
-    ax_calibration.text(0.98, 0.41, "relative reproduction error", transform=ax_calibration.transAxes, fontsize=10.5, color=COLORS["muted"], ha="right")
-
-    ax_throughput = fig.add_subplot(grid[0, 2])
-    ax_throughput.axis("off")
-    ax_throughput.set_title("C  仿真吞吐 / Throughput", loc="left", fontsize=18, fontweight="bold", pad=18)
-    _box(ax_throughput, 0.02, 0.08, 0.96, 0.78, edge=COLORS["teal"], face=COLORS["teal_pale"], radius=0.04, linewidth=1.2)
-    ax_throughput.text(0.50, 0.60, f'{benchmark["steps_per_second"]:.2f}', transform=ax_throughput.transAxes, fontsize=34, fontweight="bold", color=COLORS["teal"], ha="center", va="center")
-    ax_throughput.text(0.50, 0.41, "simulation steps / s", transform=ax_throughput.transAxes, fontsize=12.5, color=COLORS["ink"], ha="center", va="center")
-    ax_throughput.text(0.50, 0.21, f'{benchmark["agents"]} capacity · {benchmark["max_agents_seen"]} max active · {benchmark["steps"]} steps', transform=ax_throughput.transAxes, fontsize=10.5, color=COLORS["muted"], ha="center", va="center")
-
-    ax_knowledge = fig.add_subplot(grid[1, 1:])
-    ax_knowledge.set_xlim(0, 10)
-    ax_knowledge.set_ylim(0, 3)
-    ax_knowledge.axis("off")
-    ax_knowledge.set_title("D  知识库规模 / Knowledge Base Statistics", loc="left", fontsize=18, fontweight="bold", pad=12)
-    ax_knowledge.text(0, 2.64, "项目规模统计，不表示检索准确率", fontsize=12.5, color=COLORS["muted"], va="top")
-    funnel = (
-        (0.0, 1.05, 3.2, "93", "Retrievable Items", COLORS["blue_pale"], COLORS["blue"]),
-        (3.55, 1.05, 2.75, "52", "Reviewed", COLORS["teal_pale"], COLORS["teal"]),
-        (6.65, 1.05, 2.25, "25", "Golden Evidence", COLORS["orange_pale"], COLORS["orange"]),
-    )
-    for index, (x, y, width, value, label, face, edge) in enumerate(funnel):
-        _box(ax_knowledge, x, y, width, 1.12, edge=edge, face=face, radius=0.08, linewidth=1.2)
-        ax_knowledge.text(x + width / 2, y + 0.70, value, fontsize=22, fontweight="bold", color=edge, va="center", ha="center")
-        ax_knowledge.text(x + width / 2, y + 0.25, label, fontsize=11.2, color=COLORS["ink"], va="center", ha="center")
-        if index < len(funnel) - 1:
-            _arrow(ax_knowledge, (x + width, y + 0.56), (funnel[index + 1][0], y + 0.56), color=COLORS["line"], width=1.5)
-    ax_knowledge.text(0, 0.52, "Machine-readable evidence: docs/results/*.json", fontsize=11, color=COLORS["muted"])
+    ax_calibration.text(0, target + 0.012, f"{target:.2f}", ha="center", fontsize=12.5, fontweight="bold")
+    ax_calibration.text(1, reproduced - 0.023, f"{reproduced:.2f}", ha="center", fontsize=12.5, fontweight="bold")
+    ax_calibration.text(0.50, 0.55, f"{relative_error:.2f}%", transform=ax_calibration.transAxes, ha="center", fontsize=30, fontweight="bold", color=COLORS["blue"])
+    ax_calibration.text(0.50, 0.45, "relative reproduction error", transform=ax_calibration.transAxes, ha="center", fontsize=11.0, color=COLORS["muted"])
+    ax_calibration.text(0.50, -0.19, "Historical target calibration · absolute gap 0.07 persons / m²", transform=ax_calibration.transAxes, ha="center", fontsize=10.5, color=COLORS["muted"])
 
     _save_figure(fig, "results-overview")
 

@@ -18,7 +18,7 @@
 
 ## <img src="docs/assets/icons/abstract.svg" width="22" alt=""> 摘要 / Abstract
 
-面向高密度人群场景中**风险识别滞后、规范检索与疏散推演相互割裂**的问题，智演 Agent 构建“实时仿真—风险诊断—规范检索—干预复演”的多智能体治理闭环。系统以向量化社会力模型持续推进群体状态，仅在风险阈值触发时调度 Slow Brain，并将仿真指标、个体行为与本地规则证据组织为可追溯诊断；中央护栏、单向导流和出口拓宽等建议进一步被转换为可执行参数，在相同随机种子下进行反事实复跑。公开版同时提供无 API Key 的确定性路径、实验脚本与机器可读结果，使方法、证据和工程实现能够被独立检查。
+面向高密度人群场景中**风险识别滞后、规范检索与疏散推演相互割裂**的问题，智演 Agent 构建“实时仿真—风险诊断—规范检索—干预复演”的多智能体治理闭环。系统以向量化社会力模型持续推进群体状态，仅在风险阈值触发时调度 Slow Brain，并将仿真指标、个体行为与本地规则证据组织为可追溯诊断；中央护栏、单向导流和出口拓宽等建议进一步被转换为可执行参数，在相同随机种子下进行反事实复跑。
 
 <a id="method"></a>
 
@@ -28,7 +28,7 @@
   <img src="docs/assets/method-architecture.svg" alt="智演 Agent 方法架构：场景编码、Fast Brain、风险门控、Slow Brain 与同种子闭环验证" width="100%">
 </p>
 
-<p align="center"><sub><b>图 1｜方法架构。</b> Fast Brain 持续推进群体状态；风险门控只在异常时激活 Slow Brain；干预策略必须回到同种子仿真中接受成对验证。</sub></p>
+<p align="center"><sub><b>图 1｜方法架构。</b> 上方蓝色主线将场景编码为 Agent 交互并持续推进群体状态；Risk Gate 在密度、速度或对向冲突超过阈值时，将异常上下文送入下方橙色证据推理链；生成的 Strategy 与 Baseline 最终进入右侧绿色模块，在相同随机种子下比较干预前后的成对变化。</sub></p>
 
 **Fast Brain：高频群体演化。** 场景拓扑、出入口、障碍物与异质群体画像被编码为初始状态；[`simulation.py`](app/services/simulation.py) 通过 NumPy 向量化计算局部交互力、碰撞与边界约束，并沿 `t → t+1 → … → t+n` 连续输出密度、速度、拥堵和行为轨迹。
 
@@ -52,19 +52,25 @@
 ## <img src="docs/assets/icons/results.svg" width="22" alt=""> 实验结果 / Results
 
 <p align="center">
-  <img src="docs/assets/results-overview.svg" alt="智演 Agent 实验结果：干预效果、历史场景复现、仿真吞吐和知识库规模" width="100%">
+  <img src="docs/assets/results-overview.svg" alt="智演 Agent 量化结果：三次固定种子的干预效果与历史场景复现误差" width="100%">
 </p>
 
-<p align="center"><sub><b>图 2｜结果与证据层级。</b> 图中前三组为仓库留档的可复现实验；知识库条目为项目规模统计，不表示检索准确率。</sub></p>
+<p align="center"><sub><b>图 2｜量化结果。</b> 左图保留三次固定种子的个体结果，并以菱形与误差棒表示均值 ± 标准差；右图比较历史目标与仿真复现值。</sub></p>
 
-| 评估问题 | 结果 | 实验边界与证据 |
+| 量化指标 | 测试结果 | 指标说明 |
 |---|---:|---|
-| 历史场景能否复现已知峰值密度 | 复现相对误差 **0.43%** | 单目标历史校准，不称为准确率或外部验证；见 [`historical-calibration.json`](docs/results/historical-calibration.json) |
-| 干预能否在相同初始条件下降低拥堵 | 单向导流使峰值密度降低 **23.10%** | 3 个固定种子、300 Agent 容量、120 步的成对工程实验；见 [`interventions.json`](docs/results/interventions.json) |
-| 本地物理层能否持续推进 | **56.98 simulation steps/s** | `accident` 场景、120 步、最大同时活跃 157 Agent；运行环境与耗时见 [`benchmark.json`](docs/results/benchmark.json) |
-| 知识工程覆盖到什么规模 | 93 条可检索、52 条 reviewed、25 条 golden | 项目建设统计，不作为 Recall、准确率或模型性能结论 |
+| 历史场景峰值密度复现精度 | 复现相对误差 **0.43%** | 历史目标为 16.40 人 / m²，仿真复现为 16.33 人 / m²；见 [`historical-calibration.json`](docs/results/historical-calibration.json) |
+| 单向导流拥堵缓解效率 | 峰值密度降低 **23.10%** | 3 个固定种子、300 Agent 容量、120 步的同种子成对实验；见 [`interventions.json`](docs/results/interventions.json) |
+| 本地仿真推进吞吐 | **56.98 simulation steps/s** | `accident` 场景运行 120 步，最大同时活跃 157 Agent；见 [`benchmark.json`](docs/results/benchmark.json) |
+| 知识库建设规模 | **93 / 52 / 25** | 分别为 retrievable / reviewed / golden 条目数，用于说明知识工程规模 |
 
-这里的 `0.43%` 衡量**已知目标与校准结果之间的相对误差**，不能通过简单取补数改写成模型准确率。干预实验用于验证代码回归和方案间相对差异；当前参数下单向导流降幅最大，但 `n=3` 不支持统计显著性或跨场景普遍排序。吞吐结果同样受 CPU、Python / NumPy 版本与场景负载影响。
+### 空间演化 / Spatial Evolution
+
+<p align="center">
+  <img src="docs/assets/crowd-distribution-audit.png" alt="固定种子事故场景中 Pedestrian Agent 向瓶颈区域汇聚的四时刻空间演化" width="100%">
+</p>
+
+<p align="center"><sub><b>图 3｜瓶颈区域的空间演化。</b> 每个点代表一个 Pedestrian Agent，颜色与形状区分行进方向，浅色热度层表示局部占据量；四个关键时刻展示双向人流如何向收窄区聚集。</sub></p>
 
 <details>
 <summary><b>查看实验配置与复现命令</b></summary>
@@ -83,6 +89,9 @@ python scripts/evaluate_interventions.py `
 
 # 从 JSON 留档重新生成 README 科研图
 python scripts/generate_readme_figures.py
+
+# 复现固定种子的空间演化审计图
+python scripts/verify_phase2_visual.py
 ```
 
 </details>
@@ -173,11 +182,8 @@ FastAPI 交互文档位于 `http://127.0.0.1:8000/docs`。
 
 ## <img src="docs/assets/icons/limitations.svg" width="22" alt=""> 局限性 / Limitations
 
-- **外部有效性：** 当前几何与人流参数主要来自文献锚点和工程化抽象，尚未使用多场景真实轨迹完成外部验证；历史目标校准只说明对已知目标的贴合程度。
-- **实验规模：** 干预结果来自 3 个固定种子的工程对比，尚未覆盖更多客流强度、空间形态、置信区间与消融实验。
-- **知识评测：** RAG 已建立 reviewed / golden 分层，但公开版尚未提供可独立运行的 Recall@k 基准，因此不发布检索准确率结论。
-- **生成不确定性：** LLM Slow Brain 会引入时延、成本与输出波动，公开版默认关闭并保留本地确定性路径。
-- **应用边界：** 本系统是科研与竞赛原型，不能替代现场勘察、专业工程计算、法规审查或应急指挥决策。
+- **跨场景验证：** 当前实验聚焦典型瓶颈与固定种子对比，后续将扩展不同空间形态、客流强度与真实轨迹数据的交叉验证。
+- **推理与知识覆盖：** RAG 语料覆盖、Slow Brain 输出稳定性及端到端时延仍需通过更大规模的检索基准和消融实验持续优化。
 
 <a id="author-contributions"></a>
 
