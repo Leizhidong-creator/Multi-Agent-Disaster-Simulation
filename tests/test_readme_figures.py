@@ -14,7 +14,6 @@ def test_readme_follows_research_repository_narrative() -> None:
         "方法概览 / Method",
         "主要贡献 / Contributions",
         "实验结果 / Results",
-        "系统演示 / Demo",
         "复现指南 / Reproduction",
         "作者贡献 / Author Contributions",
     )
@@ -23,26 +22,42 @@ def test_readme_follows_research_repository_narrative() -> None:
         assert section in readme
     for earlier, later in zip(sections, sections[1:]):
         assert readme.index(earlier) < readme.index(later)
-    for rejected in ("30 秒看懂项目", "面试官关心的问题", "核心页面"):
+    for rejected in (
+        "30 秒看懂项目",
+        "面试官关心的问题",
+        "核心页面",
+        "系统演示 / Demo",
+    ):
         assert rejected not in readme
 
 
-def test_readme_uses_crisp_generated_assets_before_demo() -> None:
+def test_readme_uses_research_figures_without_product_screenshots() -> None:
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
-    assets = (
-        "docs/assets/zhiyan-wordmark.svg",
-        "docs/assets/method-architecture.svg",
-        "docs/assets/results-overview.svg",
-    )
 
-    for asset in assets:
-        assert asset in readme
-    assert readme.index("docs/assets/method-architecture.svg") < readme.index(
-        "系统演示 / Demo"
+    assert "docs/assets/zhiyan-wordmark.svg" in readme
+    assert readme.count("docs/assets/method-architecture.svg") == 1
+    assert readme.count("docs/assets/results-overview.svg") == 1
+    for rejected_asset in (
+        "docs/assets/zhiyan-simulation-dashboard.png",
+        "docs/assets/zhiyan-control-workspace.png",
+    ):
+        assert rejected_asset not in readme
+
+
+def test_method_figure_source_uses_english_only() -> None:
+    script = (ROOT / "scripts" / "generate_readme_figures.py").read_text(
+        encoding="utf-8"
     )
-    assert readme.index("docs/assets/results-overview.svg") < readme.index(
-        "系统演示 / Demo"
-    )
+    method_source = script[
+        script.index("def build_method_architecture") : script.index(
+            "def build_results_overview"
+        )
+    ]
+
+    assert "Interaction Encoder" in method_source
+    assert "Evidence\\nReasoner" in method_source
+    assert "Counterfactual Evaluator" in method_source
+    assert not any("\u4e00" <= character <= "\u9fff" for character in method_source)
 
 
 def test_figure_script_reads_all_machine_results() -> None:

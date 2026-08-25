@@ -231,132 +231,137 @@ def build_section_icons() -> None:
 
 
 def build_method_architecture() -> None:
-    fig, ax = plt.subplots(figsize=(16, 9))
-    ax.set_xlim(0, 16)
-    ax.set_ylim(0, 9)
+    """Build a compact English-only pipeline figure for the README."""
+    fig, ax = plt.subplots(figsize=(18.5, 7.0))
+    ax.set_xlim(0, 18.5)
+    ax.set_ylim(0, 7.0)
     ax.axis("off")
 
-    ax.text(
-        0.25,
-        8.63,
-        "智演 Agent 方法架构 / Method Architecture",
-        fontsize=25,
-        fontweight="bold",
-        color=COLORS["ink"],
-        va="top",
-    )
-    ax.text(
-        0.25,
-        8.22,
-        "高频群体演化定位风险，证据增强慢脑生成策略，同种子反事实复跑验证效果",
-        fontsize=14,
-        color=COLORS["muted"],
-        va="top",
-    )
+    blue = "#0072B2"
+    sky = "#56B4E9"
+    amber = "#E69F00"
+    vermillion = "#D55E00"
+    green = "#009E73"
+    light_blue = "#EDF6FB"
+    light_amber = "#FFF7E6"
+    light_green = "#ECF8F3"
+    gray = "#5D6876"
+    light_gray = "#F4F6F8"
+    border = "#AAB4C0"
 
-    _box(ax, 0.25, 3.25, 2.35, 4.15, edge=COLORS["blue"], face=COLORS["blue_pale"])
-    ax.text(0.52, 7.05, "01  场景编码", fontsize=18, fontweight="bold", color=COLORS["blue_dark"], va="top")
-    ax.text(0.52, 6.68, "Scenario Encoding", fontsize=12.5, color=COLORS["muted"], va="top")
-    inputs = (
-        ("空间拓扑", "geometry · exits"),
-        ("群体画像", "profiles · mobility"),
-        ("边界条件", "flow · obstacles"),
-    )
-    for index, (title, subtitle) in enumerate(inputs):
-        y = 5.70 - index * 1.03
-        _box(ax, 0.52, y, 1.82, 0.74, edge=COLORS["blue"], face=COLORS["paper"], radius=0.08, linewidth=1.0)
-        ax.text(0.67, y + 0.47, title, fontsize=14, fontweight="bold", va="center")
-        ax.text(0.67, y + 0.20, subtitle, fontsize=10.5, color=COLORS["muted"], va="center")
-    _box(ax, 2.98, 4.88, 7.42, 2.52, edge=COLORS["teal"], face=COLORS["teal_pale"])
-    ax.text(3.25, 7.05, "02  Fast Brain · 高频多智能体演化", fontsize=18, fontweight="bold", color=COLORS["teal"], va="top")
-    ax.text(3.25, 6.68, "Agent Interaction Layers", fontsize=12.5, color=COLORS["muted"], va="top")
+    def section_label(x: float, y: float, letter: str, title: str, width: float) -> None:
+        ax.text(x, y, letter, fontsize=16, fontweight="bold", color=COLORS["ink"], va="center")
+        ax.text(x + 0.38, y, title, fontsize=15, fontweight="bold", color=COLORS["ink"], va="center")
+        ax.plot([x, x + width], [y - 0.28, y - 0.28], color=border, linewidth=0.8)
 
-    layer_x = [3.36, 3.88, 4.40, 4.92]
-    for layer_index, x in enumerate(layer_x):
-        _box(ax, x, 5.18, 0.88, 1.18, edge=COLORS["teal"], face=COLORS["paper"], radius=0.06, linewidth=1.0)
-        for row in range(3):
+    def module(
+        x: float,
+        y: float,
+        width: float,
+        height: float,
+        title: str,
+        subtitle: str,
+        *,
+        edge: str = border,
+        face: str = COLORS["paper"],
+        title_size: float = 12.5,
+    ) -> None:
+        _box(ax, x, y, width, height, edge=edge, face=face, radius=0.06, linewidth=1.1)
+        ax.text(x + width / 2, y + height - 0.34, title, fontsize=title_size, fontweight="bold", ha="center", va="center", linespacing=0.92)
+        if subtitle:
+            ax.text(x + width / 2, y + 0.27, subtitle, fontsize=9.4, color=gray, ha="center", va="center")
+
+    section_label(0.35, 6.55, "a", "Continuous Crowd Dynamics", 11.35)
+    section_label(8.25, 3.62, "b", "Event-triggered Evidence Reasoning", 7.40)
+    section_label(15.90, 6.55, "c", "Counterfactual Evaluator", 2.25)
+
+    module(0.45, 4.15, 1.65, 1.55, "Scene Tokens", "", edge=blue, face=light_blue)
+    for index, label in enumerate(("Geometry", "Profiles", "Boundary")):
+        y = 5.16 - index * 0.33
+        ax.add_patch(Circle((0.68, y), 0.055, facecolor=blue, edgecolor="none"))
+        ax.text(0.83, y, label, fontsize=9.3, color=gray, va="center")
+
+    _box(ax, 2.61, 4.02, 2.55, 1.80, edge=blue, face=COLORS["paper"], radius=0.05, linewidth=1.15)
+    ax.text(3.885, 5.49, "Interaction Encoder", fontsize=12.5, fontweight="bold", ha="center", va="center")
+    for layer in range(4):
+        x = 2.91 + layer * 0.42
+        face = light_blue if layer % 2 == 0 else COLORS["paper"]
+        _box(ax, x, 4.43, 0.70, 0.70, edge=sky, face=face, radius=0.03, linewidth=0.9)
+        for row in range(2):
             for column in range(2):
-                ax.add_patch(Circle((x + 0.27 + column * 0.34, 5.46 + row * 0.30), 0.055, facecolor=COLORS["teal"], edgecolor="none"))
-        if layer_index < len(layer_x) - 1:
-            _arrow(ax, (x + 0.88, 5.77), (layer_x[layer_index + 1], 5.77), color=COLORS["teal"], width=1.1)
-    ax.text(4.63, 5.02, "邻域感知 · 社会力 · 避障更新", fontsize=11, color=COLORS["muted"], ha="center")
+                ax.add_patch(Circle((x + 0.22 + column * 0.26, 4.64 + row * 0.25), 0.042, facecolor=blue, edgecolor="none"))
+    ax.text(4.88, 5.03, "× L", fontsize=10.5, color=blue, fontweight="bold", ha="center")
+    ax.text(3.885, 4.20, r"$N(i)$  ·  $f_{ij}$  ·  collision", fontsize=9.4, color=gray, ha="center")
 
-    ax.text(6.18, 6.43, "Temporal Evolution", fontsize=12.5, color=COLORS["muted"], va="top")
-    times = ("t", "t+1", "…", "t+n")
-    for index, label in enumerate(times):
-        x = 6.00 + index * 0.63
-        _box(ax, x, 5.43, 0.56, 0.58, edge=COLORS["teal"], face=COLORS["paper"], radius=0.07, linewidth=1.0)
-        ax.text(x + 0.28, 5.72, label, fontsize=12.5, ha="center", va="center", fontweight="bold")
-        if index < len(times) - 1:
-            _arrow(ax, (x + 0.56, 5.72), (x + 0.62, 5.72), color=COLORS["teal"], width=1.0)
-
-    ax.text(9.38, 6.43, "Crowd State", fontsize=12.5, color=COLORS["muted"], ha="center", va="top")
-    for index, label in enumerate(("Density", "Velocity", "Congestion")):
-        y = 5.88 - index * 0.39
-        _box(ax, 8.64, y, 1.48, 0.28, edge=COLORS["teal"], face=COLORS["paper"], radius=0.05, linewidth=0.9)
-        ax.text(9.38, y + 0.14, label, fontsize=10.5, ha="center", va="center")
-
-    _arrow(ax, (2.60, 5.92), (2.98, 5.92), color=COLORS["blue"], width=2.0)
+    module(5.70, 4.15, 2.45, 1.55, "Temporal Rollout", "state transition", edge=blue, face=COLORS["paper"])
+    state_labels = (r"$X_t$", r"$X_{t+1}$", r"$\cdots$", r"$X_{t+H}$")
+    for index, label in enumerate(state_labels):
+        x = 5.94 + index * 0.51
+        _box(ax, x, 4.66, 0.42, 0.45, edge=sky, face=light_blue, radius=0.04, linewidth=0.9)
+        ax.text(x + 0.21, 4.885, label, fontsize=9.3, fontweight="bold", ha="center", va="center")
+        if index < len(state_labels) - 1:
+            _arrow(ax, (x + 0.42, 4.885), (x + 0.50, 4.885), color=sky, width=0.9)
 
     gate = Polygon(
-        [(11.32, 6.95), (12.28, 6.13), (11.32, 5.31), (10.36, 6.13)],
+        [(9.10, 5.78), (9.82, 4.92), (9.10, 4.06), (8.38, 4.92)],
         closed=True,
-        facecolor=COLORS["red_pale"],
-        edgecolor=COLORS["red"],
-        linewidth=1.5,
+        facecolor=light_amber,
+        edgecolor=amber,
+        linewidth=1.25,
     )
     ax.add_patch(gate)
-    ax.text(11.32, 6.29, "Risk-aware", fontsize=12.5, ha="center", va="center", fontweight="bold", color=COLORS["red"])
-    ax.text(11.32, 5.99, "Gating", fontsize=12.5, ha="center", va="center", fontweight="bold", color=COLORS["red"])
-    ax.text(11.32, 5.69, "score > τ", fontsize=10.5, ha="center", va="center", color=COLORS["muted"])
-    _arrow(ax, (10.40, 6.13), (10.57, 6.13), color=COLORS["teal"], width=2.0)
+    ax.text(9.10, 5.12, "Risk Gate", fontsize=11.5, fontweight="bold", ha="center", va="center")
+    ax.text(9.10, 4.73, r"$r_t > \tau$", fontsize=10.5, color=vermillion, ha="center", va="center")
 
-    _box(ax, 2.98, 1.18, 9.30, 2.80, edge=COLORS["orange"], face=COLORS["orange_pale"])
-    ax.text(3.25, 3.64, "03  Slow Brain · 证据增强风险推理", fontsize=18, fontweight="bold", color=COLORS["orange"], va="top")
-    ax.text(3.25, 3.28, "Event-triggered reasoning path", fontsize=12.5, color=COLORS["muted"], va="top")
-    slow_nodes = (
-        (3.26, "Risk Context", "时空异常摘要"),
-        (5.49, "Evidence Retrieval", "RAG · metadata"),
-        (7.72, "Reasoning", "evidence-grounded"),
-        (9.95, "Intervention Head", "guardrail · flow · exits"),
-    )
-    for index, (x, title, subtitle) in enumerate(slow_nodes):
-        _box(ax, x, 1.68, 1.83, 1.04, edge=COLORS["orange"], face=COLORS["paper"], radius=0.09, linewidth=1.1)
-        ax.text(x + 0.915, 2.34, title, fontsize=12.2, ha="center", va="center", fontweight="bold")
-        ax.text(x + 0.915, 1.98, subtitle, fontsize=10.2, ha="center", va="center", color=COLORS["muted"])
-        if index < len(slow_nodes) - 1:
-            _arrow(ax, (x + 1.83, 2.20), (slow_nodes[index + 1][0], 2.20), color=COLORS["orange"], width=1.7)
-    ax.plot([11.32, 11.32, 4.18], [5.31, 3.02, 3.02], color=COLORS["red"], linewidth=1.7)
-    _arrow(ax, (4.18, 3.02), (4.18, 2.72), color=COLORS["red"], width=1.7)
-    ax.text(10.92, 3.16, "trigger", fontsize=10.5, color=COLORS["red"], fontweight="bold", ha="center")
+    module(10.34, 4.15, 1.46, 1.55, "Crowd State", "", edge=blue, face=light_blue)
+    for index, label in enumerate(("density", "velocity", "conflict")):
+        ax.text(11.07, 5.13 - index * 0.28, label, fontsize=9.0, color=gray, ha="center", va="center")
+    ax.text(11.07, 4.31, r"$D_t$ · $V_t$ · $C_t$", fontsize=8.8, color=gray, ha="center", va="center")
 
-    _box(ax, 12.75, 1.18, 3.00, 6.22, edge=COLORS["green"], face=COLORS["green_pale"])
-    ax.text(13.04, 7.05, "04  闭环验证", fontsize=18, fontweight="bold", color=COLORS["green"], va="top")
-    ax.text(13.04, 6.68, "Matched-seed Replay", fontsize=12.5, color=COLORS["muted"], va="top")
-    replay_nodes = (
-        (5.50, "Baseline", "original parameters"),
-        (4.26, "Intervention", "executable parameters"),
-        (3.02, "Paired Comparison", "density · flow · duration"),
-        (1.78, "Evidence Artifacts", "JSON · report · traces"),
-    )
-    for index, (y, title, subtitle) in enumerate(replay_nodes):
-        face = COLORS["paper"] if index != 2 else "#DDF0E6"
-        _box(ax, 13.08, y, 2.34, 0.82, edge=COLORS["green"], face=face, radius=0.08, linewidth=1.1)
-        ax.text(14.25, y + 0.51, title, fontsize=12.2, ha="center", va="center", fontweight="bold")
-        ax.text(14.25, y + 0.21, subtitle, fontsize=9.8, ha="center", va="center", color=COLORS["muted"])
-        if index < len(replay_nodes) - 1:
-            _arrow(ax, (14.25, y), (14.25, replay_nodes[index + 1][0] + 0.82), color=COLORS["green"], width=1.5)
-    _arrow(ax, (12.28, 6.13), (13.08, 5.91), color=COLORS["green"], width=1.9)
-    _arrow(ax, (11.78, 2.20), (13.08, 4.67), color=COLORS["orange"], width=1.9, connectionstyle="angle3,angleA=0,angleB=-90")
+    _arrow(ax, (2.10, 4.92), (2.61, 4.92), color=blue, width=1.5)
+    _arrow(ax, (5.16, 4.92), (5.70, 4.92), color=blue, width=1.5)
+    _arrow(ax, (8.15, 4.92), (8.38, 4.92), color=blue, width=1.5)
+    _arrow(ax, (9.82, 4.92), (10.34, 4.92), color=blue, width=1.5)
 
-    ax.text(
-        0.25,
-        0.50,
-        "Figure 1. 快脑持续推进群体状态；风险门控仅在异常时激活慢脑；干预策略必须回到同种子仿真中接受成对验证。",
-        fontsize=12.5,
-        color=COLORS["muted"],
-        va="center",
-    )
+    module(8.34, 1.35, 1.52, 1.42, "Risk Context", r"$q_r = \{D,V,C\}$", edge=vermillion, face=light_amber)
+    module(10.26, 1.35, 1.70, 1.42, "Evidence\nRetriever", "top-k + metadata", edge=amber, face=COLORS["paper"], title_size=10.8)
+    module(12.36, 1.35, 1.74, 1.42, "Evidence\nReasoner", r"$q_r \leftrightarrow K$", edge=amber, face=COLORS["paper"], title_size=10.8)
+    module(14.50, 1.35, 1.20, 1.42, "Strategy", r"$\pi_\theta(z)$", edge=amber, face=light_amber)
+
+    ax.plot([9.10, 9.10], [4.06, 2.77], color=vermillion, linewidth=1.25)
+    _arrow(ax, (9.10, 2.77), (9.10, 2.70), color=vermillion, width=1.25)
+    ax.text(9.30, 3.34, "trigger", fontsize=9.0, color=vermillion, va="center")
+    _arrow(ax, (9.86, 2.06), (10.26, 2.06), color=amber, width=1.3)
+    _arrow(ax, (11.96, 2.06), (12.36, 2.06), color=amber, width=1.3)
+    _arrow(ax, (14.10, 2.06), (14.50, 2.06), color=amber, width=1.3)
+
+    _box(ax, 10.34, 0.34, 1.55, 0.58, edge=border, face=light_gray, radius=0.04, linewidth=0.9)
+    ax.text(11.115, 0.63, "Evidence Store  K", fontsize=9.6, fontweight="bold", color=gray, ha="center", va="center")
+    _arrow(ax, (11.115, 0.92), (11.115, 1.35), color=border, width=1.0, linestyle="--")
+
+    _box(ax, 16.02, 1.18, 2.16, 4.70, edge=green, face=light_green, radius=0.06, linewidth=1.2)
+    ax.text(17.10, 5.50, "Matched Seed", fontsize=11.8, fontweight="bold", color=green, ha="center")
+    ax.text(17.10, 5.17, "s = constant", fontsize=9.5, color=gray, ha="center")
+    module(16.30, 4.03, 1.60, 0.82, "Baseline", r"$\pi_0$", edge=green, face=COLORS["paper"])
+    module(16.30, 2.93, 1.60, 0.82, "Intervention", r"$\pi_1$", edge=green, face=COLORS["paper"])
+    _box(ax, 16.30, 1.55, 1.60, 0.98, edge=green, face=COLORS["paper"], radius=0.04, linewidth=1.0)
+    ax.text(17.10, 2.19, "Paired Δ", fontsize=11.0, fontweight="bold", ha="center")
+    ax.text(17.10, 1.83, "density · risk · flow", fontsize=8.8, color=gray, ha="center")
+    _arrow(ax, (17.10, 4.03), (17.10, 3.75), color=green, width=1.1)
+    _arrow(ax, (17.10, 2.93), (17.10, 2.53), color=green, width=1.1)
+
+    ax.plot([11.80, 15.80, 15.80, 16.02], [4.92, 4.92, 4.44, 4.44], color=blue, linewidth=1.25)
+    _arrow(ax, (15.80, 4.44), (16.30, 4.44), color=blue, width=1.25)
+    ax.plot([15.70, 15.86, 15.86], [2.06, 2.06, 3.34], color=amber, linewidth=1.25)
+    _arrow(ax, (15.86, 3.34), (16.30, 3.34), color=amber, width=1.25)
+
+    ax.text(0.45, 0.55, "Fast path", fontsize=9.4, color=blue, fontweight="bold")
+    ax.plot([1.20, 2.25], [0.60, 0.60], color=blue, linewidth=1.6)
+    ax.text(2.58, 0.55, "Triggered path", fontsize=9.4, color=amber, fontweight="bold")
+    ax.plot([3.72, 4.77], [0.60, 0.60], color=amber, linewidth=1.6)
+    ax.text(5.10, 0.55, "Paired evaluation", fontsize=9.4, color=green, fontweight="bold")
+    ax.plot([6.53, 7.58], [0.60, 0.60], color=green, linewidth=1.6)
+
     _save_figure(fig, "method-architecture")
 
 
