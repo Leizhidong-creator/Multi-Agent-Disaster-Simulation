@@ -18,6 +18,10 @@
 
 ## <img src="docs/assets/icons/abstract.svg" width="22" alt=""> 摘要 / Abstract
 
+**一个基于 Agent-Based Modeling 的具身多智能体人群仿真与风险治理系统，通过事件触发的 Slow Brain、RAG 证据检索与同种子反事实复演，实现风险诊断、策略生成与干预验证。**
+
+*An embodied multi-agent crowd simulation and risk-governance system built on Agent-Based Modeling, with event-triggered Slow Brain reasoning, retrieval-augmented evidence grounding, and matched-seed counterfactual evaluation.*
+
 面向高密度人群场景中**风险识别滞后、规范检索与疏散推演相互割裂**的问题，智演 Agent 构建“实时仿真—风险诊断—规范检索—干预复演”的多智能体治理闭环。系统以向量化社会力模型持续推进群体状态，在风险阈值触发时调度 Slow Brain，并将仿真指标、个体行为与本地规则证据组织为可追溯诊断；中央护栏、单向导流和出口拓宽等建议进一步被转换为可执行参数，在相同随机种子下进行反事实复跑。
 
 <a id="method"></a>

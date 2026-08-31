@@ -7,6 +7,18 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def test_readme_positions_agent_paradigm_before_abstract_body() -> None:
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    chinese = "**一个基于 Agent-Based Modeling 的具身多智能体人群仿真与风险治理系统，通过事件触发的 Slow Brain、RAG 证据检索与同种子反事实复演，实现风险诊断、策略生成与干预验证。**"
+    english = "*An embodied multi-agent crowd simulation and risk-governance system built on Agent-Based Modeling, with event-triggered Slow Brain reasoning, retrieval-augmented evidence grounding, and matched-seed counterfactual evaluation.*"
+    abstract_body = "面向高密度人群场景中"
+
+    assert chinese in readme
+    assert english in readme
+    assert readme.index("摘要 / Abstract") < readme.index(chinese)
+    assert readme.index(chinese) < readme.index(english) < readme.index(abstract_body)
+
+
 def test_readme_follows_research_repository_narrative() -> None:
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     sections = (
